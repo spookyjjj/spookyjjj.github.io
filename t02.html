@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스가로정렬</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        section {
+            display: flex;
+            text-align: center;
+            margin: 0 auto;
+            width: 1200px;
+            background-color: #f00;
+        }
+
+        /* div가 section 밖에도 안에도 있는 경우, div라고만 셀렉하면 밖안 전부 변함.. section>div라고해야 안의 것만 */
+        section>div {
+            flex: 1;
+            color: rgb(0, 128, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>001</div>
+        <div>002</div>
+        <div>003</div>
+        <div>004</div>
+    </section>
+
+    <div>005</div>
+</body>
+
+</html>
