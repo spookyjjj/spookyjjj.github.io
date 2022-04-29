@@ -1,0 +1,39 @@
+/* 한 컨테이너 안에는 항상 가로로 박스 배열되도록~!! 맨위에 선언 */
+.container {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 첫째줄 */
+/* header 자식인 top_banner 이름을 부르는거니깐 사이를 꼭 띄어쓰기 */
+.header .top_banner {
+    border-bottom: 1px solid #ddd;
+    line-height: 40px;
+}
+
+.header .top_banner span {
+    margin: 0 0 0 auto;
+}
+
+/* i가 아닌 a를 지정해야 border 선이 꽉차게 나옴 */
+.header .top_banner a {
+    margin: 0 0 0 10px;
+    padding: 0 10px;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+
+/* 둘째줄 */
+.header .gnb {
+    margin: 0 0 0 auto;
+}
+
+.header .gnb>ul {
+    display: flex;
+    gap: 30px;
+    line-height: 90px;
+    font-size: 19px;
+    font-weight: 500;
+}

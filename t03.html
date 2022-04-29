@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z축겹치기</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main_visual {
+            padding: 100px 0;
+            background: #ddd;
+            text-align: center;
+        }
+
+        .main_visual h2 {
+            font-size: 30px;
+            margin: 0 0 20px 0;
+        }
+
+        .main_visual p {
+            font-size: 15px;
+            margin: 0 0 30px 0;
+        }
+
+        .main_visual .container {
+            display: flex;
+            gap: 30px;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main_visual .container img {
+            width: 100%;
+        }
+
+        /* span은 박스가 아님! 그래서 너비 높이 마진(위아래) 패딩(위아래)값 (좌우로는 먹음???)안먹는다~ 
+        하지만 position을 먹이면 그때부터는 너비 등등 먹음*/
+        .main_visual .container span {
+            position: absolute;
+            top: 300px;
+            left: 300px;
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+            color: #fff;
+            background: red;
+            border-radius: 50%;
+        }
+
+        .main_visual .container span:hover {
+            border-radius: 0;
+            left: 400px;
+            transition: 0.5s;
+        }
+
+        .main_visual .container figure {
+            /* 오버플로우 히든은 박스안에서만 (scale)커지게 함 */
+            overflow: hidden;
+        }
+
+        .main_visual .container figure img {
+            transition: 0.5s;
+        }
+
+        .main_visual .container figure:hover img {
+            transform: scale(1.8);
+        }
+
+        .mopen {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: #333;
+            width: 100px;
+            height: 90px;
+        }
+
+        /* 부모의 위치가 자동으로 고정이 됨 */
+        .mopen>span {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            /* 전체 100px에서 20px 주고 60px 먹고 20px자투리 or right:20px줘도 똑같음 */
+            width: 60px;
+            height: 5px;
+            background: #fff;
+            transition: 0.5s;
+        }
+
+        .mopen>span:nth-child(1) {
+            top: 20px;
+        }
+
+        .mopen>span:nth-child(2) {
+            top: 40px;
+        }
+
+        .mopen>span:nth-child(3) {
+            top: 40px;
+        }
+
+        .mopen>span:nth-child(4) {
+            top: 60px;
+        }
+
+        .mopen.oo>span:nth-child(1) {
+            display: none;
+        }
+
+        .mopen.oo>span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .mopen.oo>span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        .mopen.oo>span:nth-child(4) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="main_visual">
+        <h2>Lorem ipsum dolor sit.</h2>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+        Illo quisquam saepe dolorem sed reiciendis!
+        </p>
+        <!-- class는 이름붙이는 기능 같은 section의 자식인 div라도 이름붙은애 아닌애 구분, 셀렉할땐.붙이고 부름 -->
+        <div class="container">
+            <figure>
+                <img src="강아지.jpg" alt="">
+                <span>강아지의 인생</span>
+            </figure>
+            <figure>
+                <img src="강아지.jpg" alt="">
+            </figure>
+            <figure>
+                <img src="강아지.jpg" alt="">
+            </figure>
+        </div>
+
+    </section>
+    <div class="mopen">
+        <!-- 깔리는쪽 Z인덱스1 -->
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <!-- 덮어지는쪽 z인덱스4-->
+    </div>
+    <script>
+        document.querySelector('.mopen').addEventListener('click', function () {
+            console.log('찍네~~~');
+
+            // 자기에게 oo라는 클래스를 붙여줘 = .add 붙였다 뗏다 하기 = .toggle
+            // document.querySelector('.mopen') = this ~선택할 박스가 중복될 경우에~
+            // so, document.querySelector('.mopen').classList.toggle('oo') = this.classList.toggle('oo')
+            document.querySelector('.mopen').classList.toggle('oo')
+        })
+    </script>
+</body>
+
+</html>
