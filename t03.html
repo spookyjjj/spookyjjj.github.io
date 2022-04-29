@@ -44,8 +44,8 @@
         하지만 position을 먹이면 그때부터는 너비 등등 먹음*/
         .main_visual .container span {
             position: absolute;
-            top: 300px;
-            left: 300px;
+            top: 100px;
+            left: 100px;
             width: 150px;
             height: 150px;
             line-height: 150px;
@@ -56,8 +56,8 @@
 
         .main_visual .container span:hover {
             border-radius: 0;
-            left: 400px;
-            transition: 0.5s;
+            left: 200px;
+            transition: 1.5s;
         }
 
         .main_visual .container figure {
@@ -82,7 +82,7 @@
             height: 90px;
         }
 
-        /* 부모의 위치가 자동으로 고정이 됨 */
+        /* >를 이용한 자식은 부모의 위치값을 기본으로 고정한 상태 */
         .mopen>span {
             position: absolute;
             top: 20px;
@@ -131,10 +131,10 @@
 <body>
     <section class="main_visual">
         <h2>Lorem ipsum dolor sit.</h2>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-        Illo quisquam saepe dolorem sed reiciendis!
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+            Illo quisquam saepe dolorem sed reiciendis!
         </p>
-        <!-- class는 이름붙이는 기능 같은 section의 자식인 div라도 이름붙은애 아닌애 구분, 셀렉할땐.붙이고 부름 -->
+        <!-- class는 이름붙이는 기능. 같은 section의 자식인 div라도 이름붙은애 아닌애 구분, class셀렉할땐.붙이고 부름 -->
         <div class="container">
             <figure>
                 <img src="강아지.jpg" alt="">
@@ -147,7 +147,6 @@
                 <img src="강아지.jpg" alt="">
             </figure>
         </div>
-
     </section>
     <div class="mopen">
         <!-- 깔리는쪽 Z인덱스1 -->
@@ -157,11 +156,13 @@
         <span></span>
         <!-- 덮어지는쪽 z인덱스4-->
     </div>
+
     <script>
         document.querySelector('.mopen').addEventListener('click', function () {
             console.log('찍네~~~');
 
-            // 자기에게 oo라는 클래스를 붙여줘 = .add 붙였다 뗏다 하기 = .toggle
+            // 자기에게 oo라는 클래스를 붙여줘 = .add 
+            // 붙였다 뗏다 하기 = .toggle
             // document.querySelector('.mopen') = this ~선택할 박스가 중복될 경우에~
             // so, document.querySelector('.mopen').classList.toggle('oo') = this.classList.toggle('oo')
             document.querySelector('.mopen').classList.toggle('oo')

@@ -1,0 +1,25 @@
+<!-- css의 영역~ -->
+<style>
+    h1 {
+        color: red;
+    }
+</style>
+
+<!-- html의 영역~ -->
+<h1>김효정</h1>
+<h1>김효정</h1>
+<h1>김효정</h1>
+<h1>김효정</h1>
+
+<button>클릭해줘 제발~~~</button>
+
+<!-- javascript의 영역~ -->
+<!-- querySelector은 기본적으로 1개만 선택됨 so,4개의 <h1>중에서 하나의 <h1>만 사라졌다 나타남-->
+<script>
+    document.querySelector('h1').style.display = "none";
+    document.querySelector('button').addEventListener('click', function () {
+        console.log('클릭했네~~~');
+        document.querySelector('h1').style.display = "block";
+    })
+
+</script>
