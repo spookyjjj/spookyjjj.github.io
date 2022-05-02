@@ -9,7 +9,9 @@
     <!-- 아래 순서로 읽어 나가면서 덮어쓰기 함 
         so, 맨처음엔 reset.css설정해놓은걸로 내장된 서식 모두 없애놓는거 부터 시작-->
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/slick.css">
     <link rel="stylesheet" href="./css/main.css">
+    <!-- <script src="./js/main.js" defer></script> -->
 
 </head>
 
@@ -29,7 +31,7 @@
             <!-- 둘째줄 -->
             <div class="container">
                 <h1>
-                    <a href="/">
+                    <a href="./index.html">
                         <img src="./img/logo.png" alt="">
                     </a>
                 </h1>
@@ -49,7 +51,46 @@
         </header>
 
         <main>
-            main
+            <!-- 메인비주얼 -->
+            <section class="main_visual">
+                <!-- 슬릭슬라이더 만들기 위한 form... 딴거 만들면 에러남 -->
+                <div class="main_slider">
+                    <!-- div.itm0$*3 하면 $에 숫자가 들어감 -->
+                    <div class="itm01">
+                        <h3>
+                            아파트입주청소
+                        </h3>
+                        <p>
+                            <strong>신축 아파트나 빌라 등 입주 전 상태에서의 실내 청소</strong>
+                            보양지 제거, 공사먼지 제거, 오염 제거, 시멘트가루 제거 등<br>
+                            구석구석 세밀하게 청소하는 서비스로 가족의 건강을 위해서 입주 전에 꼭 해야 하는 서비스입니다.
+                        </p>
+                    </div>
+                    <div class="itm02">
+                        <h3>
+                            이사/상가청소
+                        </h3>
+                        <p>
+                            <strong>오랫동안 누적된 공간의 묵은 때, 찌든 때, 누적된 먼지와 세균들을 이사하기전에 청소</strong>
+                            신축 건물은 공사기간 중 쌓인 미세먼지/유해성분들이 곳곳에 산재해 있습니다.<br>
+                            입추청소를 맡기시면 유해성분 제거하고 청결한 환경을 만드실 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="itm03">
+                        <h3>
+                            사무실청소
+                        </h3>
+                        <p>
+                            <strong>쾌적한 업무 환경을 만들고, 능률적인 업무를 수행하기 위해 반드시 필요한 청소</strong>
+                            쾌적한 업무 환경을 만들고, 능률적인 업무를 수행하기 위해 반드시 필요한 청소 작업 입니다. <br>
+                            사무실청소에 있어서 가장 중요한 점은 빠른 시간 내에 완벽한 작업을 마무리 하는 것이 중요합니다. <br>
+                        </p>
+                    </div>
+                </div>
+                <div class="slogan">
+                    <img src="./img/slogan.png" alt="">
+                </div>
+            </section>
         </main>
 
         <footer class="footer">
@@ -57,6 +98,11 @@
         </footer>
     </div>
 
+    <!-- js는 다 읽고 마지막에 위치 -->
+    <!-- js자체도 읽는 순서대로 j쿼리부터 읽고 slick읽고(j쿼리 기반이 있어야 읽어냄) 내 js파일 읽고 -->
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <script src="./js/main.js"></script>
 
 </body>
 

@@ -24,7 +24,6 @@
     border-left: 1px solid #ddd;
 }
 
-
 /* 둘째줄 */
 .header .gnb {
     margin: 0 0 0 auto;
@@ -36,4 +35,66 @@
     line-height: 90px;
     font-size: 19px;
     font-weight: 500;
+}
+
+/* 메인비주얼*/
+.main_visual {
+    height: 600px;
+    background: url(../img/main_slider01.jpg) no-repeat center top/cover;
+    position: relative;
+}
+
+.main_visual .slogan {
+    position: absolute;
+    top: 100px;
+    right: 650px;
+    /* 축약형 ~~inset: 100px 700px auto auto;~~ */
+}
+
+/* 슬릭슬라이더 */
+/* position 먹이면 margin, padding 사용XXX*/
+/* transform은 margin, padding과 달리 레이아웃을 안 깬다*/
+.main_slider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px
+}
+
+.main_slider h3 {
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0 0 30px 0;
+    color: #00f;
+}
+
+.main_slider strong {
+    display: block;
+    margin: 0 0 20px 0;
+    color: #fd7e14
+}
+
+/* dots:true로 설정하면 자동으로 이름 붙여진 박스생성됨 */
+/* slick-dots 박스 전체 */
+.main_slider .slick-dots {
+    padding: 30px 0 0 0;
+    /* background: #00f; */
+}
+/* slick-dots 박스 안의 li 한줄한줄들, 모이면 slick-dots 박스 전체 */
+.main_slider .slick-dots li {
+    /* slick안에서는 충돌날 수 있으니 flex대신에 inline-block이걸 사용 */
+    display: inline-block;
+    margin: 0 10px 0 0;
+    width: 80px;
+    height: 10px;
+    background: #000;
+}
+/* slick-dots 박스 안의 li중에 활성화 되고 있는 한줄 */
+.main_slider .slick-dots li.slick-active {
+    background: #fd7e14;
+}
+/* 기본 dots형태 번호 붙여진 그거 */
+.main_slider .slick-dots button {
+    display: none;
 }

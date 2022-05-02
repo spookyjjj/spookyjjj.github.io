@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- url을 body에 안넣고 head에 넣는 이유?? -->
+<!-- css에서 'background-'로 묶여야 'background-어쩌구' 지시가 먹힘 'backgound'축약형도 먹힘
+    body에 img파일로 넣으면 그냥 일반적 단일 이미지로만 쓰이는듯 -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background</title>
+    <style>
+        .bg01 {
+            /* background는 height가 있어야 공간확보 */
+            height: 500px;
+            /* 이게 backgound 기본 문법!!!! 축약형 ~~색 경로() 리핏 위치 보일곳/차지하는 면적~~ */
+            background: red url(./trn01/img/main_slider01.jpg) no-repeat center top/cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg01">001</div>
+</body>
+
+</html>
