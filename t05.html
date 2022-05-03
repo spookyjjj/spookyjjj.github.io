@@ -31,11 +31,22 @@
         /* html에서 빈박스 만드는거 no!! css에서 가상요소를 사용!! */
         h2::before {
             content: "";
-            display: block;
-            /* display: inline-block -> vertical-align:center -> margin: 0 10px; */
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px;
             width: 80px;
             height: 1px;
-            color: red;
+            background: #fae422;
+        }
+
+        h2::after {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px;
+            width: 80px;
+            height: 1px;
+            background: #fae422;
         }
 
         li::before {
