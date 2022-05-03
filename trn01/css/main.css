@@ -41,9 +41,9 @@
 /* 220502 수업 */
 /* 메인비주얼*/
 .main_visual {
+    position: relative;
     height: 600px;
     background: url(../img/main_slider01.jpg) no-repeat center top/cover;
-    position: relative;
 }
 
 .main_visual .slogan {
@@ -67,13 +67,14 @@
 .main_slider h3 {
     font-size: 65px;
     font-weight: 900;
-    margin: 10px 0 30px 0;
+    margin: 10px 0;
     /* background-clip은 background 를 어디까지 적용시키는지
         -> text영역에만 배경넣고 text자체는 투명처리
         -webkit-는 호환성문제로 넣어주는것 */
     color: transparent;
     background: linear-gradient(to top, #064199, #78b3e4);
     -webkit-background-clip: text;
+    line-height: 2;
 }
 
 .main_slider p {
@@ -131,14 +132,15 @@
 }
 
 .main_banner figure {
-    /* display: flex; */
+    /* 자기자신의 크기조절을 말함 */
     flex: 1;
-    /* text-align: center; */
-    color: #fff;
-    /* justify-content: center; */
-    /* align-items: center; */
     height: 200px;
     transition: 0.5s;
+    /* 자기 자식인 .main_banner figure a를 flex먹이고, 놓을 위치 설정 */
+    /* display: flex는 block도 되면서 align-items, justify-content로 위치조정도 가능!! */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* 이걸 위해서 .main_banner .container를 220px크기로 맞춤 */
@@ -164,14 +166,15 @@
 }
 
 .main_banner figure a {
-    /* a자체는 높이 너비 안먹음 (text같음), 그래서 block처리를 해줘야 먹는다~ */
-    /* display: flex;가 뜻하는건 block flex. 즉, 블록만들면서 가로로 붙임 */
+    /* a자체는 높이 너비 안먹음 (text꼴), 그래서 block처리를 해줘야 먹는다~ */
+    /* display: flex는 block도 되면서 align-items, justify-content로 위치조정도 가능!! */
     display: flex;
     align-items: flex-end;
     justify-content: center;
     width: 100px;
     height: 120px;
     font-size: 13px;
+    color: #fff
 }
 
 .main_banner figure:nth-child(1) a {
@@ -190,7 +193,7 @@
     background: url(../img/icon_set_w.png) no-repeat -300px 0;
 }
 
-/* 이 과정으로 배경이미지가 각각마다 들어있다는거 직관적으로 이해
+/* 이 과정으로 배경이미지가 각각마다 들어있다는거 직관적으로 이해가능
 .main_banner figure:nth-child(1):hover a {
     background: url(../img/icon_set_w.png) no-repeat -300px 0;
     transition: 0.5s;
@@ -234,7 +237,7 @@
 /* 메인링크 */
 .main_link {
     padding: 0 0 80px 0;
-    /* 앞의 숫자가 50이상이어야 선이 생긴다 -> to bottom등 사용 */
+    /* 앞의 숫자가 50이상이어야 선이 생긴다 -> to bottom등 사용해서 앞숫자가 크게 유도해야함 */
     background: linear-gradient(to top, #f7f7f7 70%, transparent 30%);
 }
 
