@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css가상요소</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        @import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: inherit;
+            font-weight: inherit;
+            box-sizing: border-box;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 0 0 50px 0;
+        }
+
+        /* html에서 빈박스 만드는거 no!! css에서 가상요소를 사용!! */
+        h2::before {
+            content: "";
+            display: block;
+            /* display: inline-block -> vertical-align:center -> margin: 0 10px; */
+            width: 80px;
+            height: 1px;
+            color: red;
+        }
+
+        li::before {
+            /* 우선 html에 <i class='xi-box'>를 넣고, (소스보기에서 컨텐츠 복사 -> font-family도 복사)하는 과정을 거쳐야함 */
+            content: "\ea01";
+            font-family: xeicon !important;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Lorem ipsum dolor sit.</h2>
+    <ul>
+        <li><i class='xi-box'></i>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+    </ul>
+</body>
+
+</html>

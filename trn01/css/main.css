@@ -63,38 +63,268 @@
 }
 
 .main_slider h3 {
-    font-size: 60px;
+    font-size: 65px;
     font-weight: 900;
-    margin: 0 0 30px 0;
-    color: #00f;
+    margin: 10px 0 30px 0;
+    /* background-clip은 background 를 어디까지 적용시키는지
+        -> text영역에만 배경넣고 text자체는 투명처리
+        -webkit-는 호환성문제로 넣어주는것 */
+    color: transparent;
+    background: linear-gradient(to top, #064199, #78b3e4);
+    -webkit-background-clip: text;
+}
+
+.main_slider p {
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: 200;
 }
 
 .main_slider strong {
     display: block;
     margin: 0 0 20px 0;
-    color: #fd7e14
+    color: #ff7f16;
+    font-weight: 400;
 }
 
 /* dots:true로 설정하면 자동으로 이름 붙여진 박스생성됨 */
 /* slick-dots 박스 전체 */
 .main_slider .slick-dots {
-    padding: 30px 0 0 0;
+    padding: 20px 0 0 0;
     /* background: #00f; */
 }
+
 /* slick-dots 박스 안의 li 한줄한줄들, 모이면 slick-dots 박스 전체 */
 .main_slider .slick-dots li {
     /* slick안에서는 충돌날 수 있으니 flex대신에 inline-block이걸 사용 */
     display: inline-block;
     margin: 0 10px 0 0;
     width: 80px;
-    height: 10px;
-    background: #000;
+    height: 5px;
+    background: rgb(243, 243, 243);
+    transition: 1s;
 }
+
 /* slick-dots 박스 안의 li중에 활성화 되고 있는 한줄 */
 .main_slider .slick-dots li.slick-active {
-    background: #fd7e14;
+    background: #ff7f16;
 }
+
 /* 기본 dots형태 번호 붙여진 그거 */
 .main_slider .slick-dots button {
     display: none;
+}
+
+
+
+/* 메인배너 */
+.main_banner {
+    transform: translatey(-80px);
+}
+
+/* hover시 늘어나게 하기 위해 container에 여유분을 줌 (item들은 200px) */
+.main_banner .container {
+    height: 220px;
+    align-items: flex-end;
+}
+
+.main_banner figure {
+    display: flex;
+    flex: 1;
+    text-align: center;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    transition: 0.5s;
+}
+
+/* 이걸 위해서 .main_banner .container를 220px크기로 맞춤 */
+.main_banner figure:hover {
+    height: 220px;
+}
+
+/* css에서는 nth가 1부터 시작! */
+.main_banner figure:nth-child(1) {
+    background: #da544b;
+}
+
+.main_banner figure:nth-child(2) {
+    background: #f3ca4f;
+}
+
+.main_banner figure:nth-child(3) {
+    background: #337688;
+}
+
+.main_banner figure:nth-child(4) {
+    background: #6fa376;
+}
+
+.main_banner figure a {
+    /* a자체는 높이 너비 안먹음 (text같음), 그래서 block처리를 해줘야 먹는다~ */
+    /* display: block; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100px;
+    height: 120px;
+    font-size: 13px;
+}
+
+.main_banner figure:nth-child(1) a {
+    background: url(../img/icon_set_w.png) no-repeat 0 0;
+}
+
+.main_banner figure:nth-child(2) a {
+    background: url(../img/icon_set_w.png) no-repeat -100px 0;
+}
+
+.main_banner figure:nth-child(3) a {
+    background: url(../img/icon_set_w.png) no-repeat -200px 0;
+}
+
+.main_banner figure:nth-child(4) a {
+    background: url(../img/icon_set_w.png) no-repeat -300px 0;
+}
+
+/* 이 과정으로 배경이미지가 각각마다 들어있다는거 직관적으로 이해
+.main_banner figure:nth-child(1):hover a {
+    background: url(../img/icon_set_w.png) no-repeat -300px 0;
+    transition: 0.5s;
+} */
+
+.main_banner .customer {
+    position: relative;
+    flex: 2;
+    height: 200px;
+    text-align: right;
+    background: rgb(245, 245, 245);
+    padding: 50px 30px 0 0;
+}
+
+.main_banner .customer a {
+    display: block;
+    margin: 0 0 15px 0;
+    font-size: 38px;
+    color: rgb(19, 19, 116);
+    font-weight: 700;
+}
+
+.main_banner .customer p {
+    font-weight: 200;
+    line-height: 23px;
+}
+
+.main_banner .customer i {
+    position: absolute;
+    top: -29px;
+    right: 30px;
+    color: #fff;
+    background: #e7948f;
+    font-size: 38px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+
+
+/* 메인링크 */
+.main_link {
+    padding: 0 0 80px 0;
+    /* 앞의 숫자가 50이상이어야 선이 생긴다 -> to bottom등 사용 */
+    background: linear-gradient(to top, #f7f7f7 70%, transparent 30%);
+}
+
+.main_link .container {
+    gap: 30px;
+}
+
+.main_link figure {
+    position: relative;
+    flex: 1;
+    /* 박스자체에 곡률을 주고, overflow hidden으로 바깥쪽은 없애는 방법도 있다
+    border-radius: 50px 0 0 0;
+    overflow: hidden; */
+}
+
+.main_link figure p {
+    font-size: 13px;
+    font-weight: 250;
+    line-height: 23px;
+}
+
+.main_link figure a {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    width: 60px;
+    height: 60px;
+    background: rgba(245, 217, 132, 0.6);
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    border-radius: 50%;
+    text-transform: uppercase;
+    /* 오퍼시티는 형제자손모두를 투명하게 해버림 -> 해결법: backgrond를 rgba라고 설정해서 조절*/
+    /* opacity: 0.6; */
+    transition: 0.5s;
+}
+
+.main_link figure a:hover {
+    background: rgba(245, 217, 132, 1);
+    border-radius: 5px;
+}
+
+.main_link img {
+    border-radius: 50px 0 50px 0;
+    width: 100%;
+    margin: 0 0 30px 0;
+}
+
+.main_link h3 {
+    margin: 0 0 15px 0;
+    font-size: 23px;
+}
+
+/* 가상요소~ 읽을수도 없는거니깐 디자인적 요소 만들때만 사용 */
+.main_link h3::after {
+    /* content:"" 는 필수로 있어야 함!!!! */
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: #e7948f;
+    margin: 15px 0 0 0;
+}
+
+
+
+.footer {
+    border-top: 1px solid #ddd;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer ul>li {
+    display: inline-block;
+}
+
+/* 물결은 자기자신 제외 옆의 형제들 선택한다는 말 */
+.footer ul>li~li::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 13px;
+    background: #333;
+    margin: 0 15px;
+    vertical-align: center;
+}
+
+.footer ul {
+    margin: 10px 0;
+}
+
+.footer address {
+    font-style: normal;
 }
