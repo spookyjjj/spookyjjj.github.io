@@ -5,6 +5,7 @@
     margin: 0 auto;
 }
 
+/* 220429 수업 */
 /* 첫째줄 */
 /* header 자식인 top_banner 이름을 부르는거니깐 사이를 꼭 띄어쓰기 */
 .header .top_banner {
@@ -37,6 +38,7 @@
     font-weight: 500;
 }
 
+/* 220502 수업 */
 /* 메인비주얼*/
 .main_visual {
     height: 600px;
@@ -116,25 +118,25 @@
 }
 
 
-
+/* 220503 수업 */
 /* 메인배너 */
 .main_banner {
     transform: translatey(-80px);
 }
 
-/* hover시 늘어나게 하기 위해 container에 여유분을 줌 (item들은 200px) */
+/* hover시 늘어나게 하기 위해 container(큰박스)에 여유분을 줌, figure(작은박스)들은 200px */
 .main_banner .container {
     height: 220px;
     align-items: flex-end;
 }
 
 .main_banner figure {
-    display: flex;
+    /* display: flex; */
     flex: 1;
-    text-align: center;
+    /* text-align: center; */
     color: #fff;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     height: 200px;
     transition: 0.5s;
 }
@@ -163,7 +165,7 @@
 
 .main_banner figure a {
     /* a자체는 높이 너비 안먹음 (text같음), 그래서 block처리를 해줘야 먹는다~ */
-    /* display: block; */
+    /* display: flex;가 뜻하는건 block flex. 즉, 블록만들면서 가로로 붙임 */
     display: flex;
     align-items: flex-end;
     justify-content: center;
