@@ -167,7 +167,9 @@
 
 .main_banner figure a {
     /* a자체는 높이 너비 안먹음 (text꼴), 그래서 block처리를 해줘야 먹는다~ */
-    /* display: flex는 block도 되면서 align-items, justify-content로 위치조정도 가능!! */
+    /* 그런데도 display: flex를 사용한 이유
+        block도 되면서 align-items, justify-content로 위치조정도 가능!!
+        a박스 안의 글자를 아래쪽 중간으로 보내기 위해서~ */
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -273,12 +275,10 @@
     text-transform: uppercase;
     /* opacity: 0.6; 오퍼시티는 형제자손모두를 투명하게 해버림 
      -> 해결법: backgrond를 rgba라고 설정해서 배경만 조절*/
-    transition: 0.5s;
 }
 
 .main_link figure a:hover {
     background: rgba(245, 217, 132, 1);
-    border-radius: 5px;
 }
 
 .main_link img {
@@ -342,6 +342,11 @@
     font-style: normal;
 }
 
+/* 굳이 none설정 안 해주더라도 span에 block걸고 너비 높이 설정 해주지 않는 이상, 보지이지 않음~~! */
+.mopen {
+    display: none;
+}
+
 /* 
 
 
@@ -351,8 +356,13 @@
 
 
 
+
+
 220504
-반응형
+~반응형~
+복사 붙여넣기 한 다음, 변화를 주는게 맘 편하다
+
+
 
 
 
@@ -405,6 +415,7 @@
         background: #fff;
         width: calc(100% - 90px);
         height: 100vh;
+        /* position 설정된 애들 중에서도 제일 앞으로 튀어나오게 하기위해~~!! */
         z-index: 999;
         border-right: 1px solid #333;
         margin: 0 0 0 auto;
@@ -434,6 +445,7 @@
     /* 메인비주얼*/
     .main_visual {
         position: relative;
+        /* 높이는 100%가 잘 안먹으니 vh쓰는게 편함 */
         height: calc(100vh - 90px);
         background: url(../img/main_slider01.jpg) no-repeat right top/cover;
     }
@@ -521,19 +533,19 @@
     .main_banner .container {
         height: auto;
         /* 꽉채우기 위한 설정 */
-        align-items: stretch;
         flex-direction: row;
+        /* wrap을 씌워야 제 크기대로 보호할 수 있다 */
         flex-wrap: wrap;
     }
 
     .main_banner figure {
         /* 자기자신의 크기조절을 말함 */
-        /* 이게뭐죠????? */
+        /* flex속성: grow shrink basis(50%->figure하나가 화면의 50%를 차지) 순서
+           auto값은 1 1 auto */
         flex: 1 1 50%;
         height: 200px;
         transition: 0.5s;
         /* 자기 자식인 .main_banner figure a를 flex먹이고, 놓을 위치 설정 */
-        /* display: flex는 block도 되면서 align-items, justify-content로 위치조정도 가능!! */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -563,7 +575,9 @@
 
     .main_banner figure a {
         /* a자체는 높이 너비 안먹음 (text꼴), 그래서 block처리를 해줘야 먹는다~ */
-        /* display: flex는 block도 되면서 align-items, justify-content로 위치조정도 가능!! */
+        /* 그런데도 display: flex를 사용한 이유
+            block도 되면서 align-items, justify-content로 위치조정도 가능!!
+            a박스 안의 글자를 아래쪽 중간으로 보내기 위해서~ */
         display: flex;
         align-items: flex-end;
         justify-content: center;
@@ -648,7 +662,7 @@
 
     .main_link figure a {
         position: absolute;
-        top: 50%;
+        top: 5%;
         right: 5%;
         width: 60px;
         height: 60px;
@@ -658,12 +672,10 @@
         color: #fff;
         border-radius: 50%;
         text-transform: uppercase;
-        transition: 0.5s;
     }
 
     .main_link figure a:hover {
         background: rgba(245, 217, 132, 1);
-        border-radius: 5px;
     }
 
     .main_link img {
@@ -727,12 +739,17 @@
         font-style: normal;
     }
 
+
+    /* 반응형 메뉴버튼 */
     .mopen {
+        display: block;
         position: fixed;
         top: 30px;
         right: 30px;
         width: 30px;
         height: 30px;
+        border-radius: 5px;
+        overflow: hidden;
         background: #ddd;
 
     }
@@ -742,25 +759,25 @@
         top: 5px;
         left: 5px;
         right: 5px;
-        height: 3px;
+        height: 2px;
         background: #333;
         transition: 1s;
     }
 
     .mopen span:nth-child(1) {
-        top: 5px;
+        top: 6px;
     }
 
     .mopen span:nth-child(2) {
-        top: 13px;
+        top: 14px;
     }
 
     .mopen span:nth-child(3) {
-        top: 13px;
+        top: 14px;
     }
 
     .mopen span:nth-child(4) {
-        top: 21px;
+        top: 22px;
     }
 
     .mopen.on span:nth-child(1) {
@@ -768,12 +785,10 @@
     }
 
     .mopen.on span:nth-child(2) {
-        top: 13px;
         transform: rotate(45deg);
     }
 
     .mopen.on span:nth-child(3) {
-        top: 13px;
         transform: rotate(-45deg);
     }
 
