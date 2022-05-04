@@ -31,6 +31,7 @@
         /* html에서 빈박스 만드는거 no!! css에서 가상요소를 사용!! */
         h2::before {
             content: "";
+            /* 인라인 블럭은 같은 줄에 가상요소 생성 */
             display: inline-block;
             background: #fae422;
             width: 80px;
@@ -42,6 +43,7 @@
 
         h2::after {
             content: "";
+            /* 인라인 블럭은 같은 줄에 가상요소 생성 */
             display: inline-block;
             background: #fae422;
             width: 80px;

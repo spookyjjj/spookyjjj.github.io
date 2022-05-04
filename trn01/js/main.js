@@ -11,4 +11,8 @@ $(function () {
         vertical: true,
         dots: true,
     });
+    $('.mopen').on('click', function () {
+        $('.gnb').toggleClass('on')
+        $('.mopen').toggleClass('on')
+    })
 })

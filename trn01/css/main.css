@@ -61,7 +61,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1200px
+    width: 1200px;
 }
 
 .main_slider h3 {
@@ -271,8 +271,8 @@
     color: #fff;
     border-radius: 50%;
     text-transform: uppercase;
-    /* 오퍼시티는 형제자손모두를 투명하게 해버림 -> 해결법: backgrond를 rgba라고 설정해서 조절*/
-    /* opacity: 0.6; */
+    /* opacity: 0.6; 오퍼시티는 형제자손모두를 투명하게 해버림 
+     -> 해결법: backgrond를 rgba라고 설정해서 배경만 조절*/
     transition: 0.5s;
 }
 
@@ -296,6 +296,7 @@
 .main_link h3::after {
     /* content:"" 는 필수로 있어야 함!!!! */
     content: "";
+    /* 블럭은 다음 줄에 가상요소 생성 */
     display: block;
     width: 80px;
     height: 2px;
@@ -315,9 +316,16 @@
     display: inline-block;
 }
 
+/* 이렇게도 가능하다~
+    .footer ul {
+        display: flex;
+        justify-content: center;
+} */
+
 /* 물결은 자기자신 제외 옆의 형제들 선택한다는 말 */
 .footer ul>li~li::before {
     content: "";
+    /* 인라인 블럭은 같은 줄에 가상요소 생성 */
     display: inline-block;
     width: 1px;
     height: 13px;
@@ -332,4 +340,445 @@
 
 .footer address {
     font-style: normal;
+}
+
+/* 
+
+
+
+
+
+
+
+
+220504
+반응형
+
+
+
+
+
+ 
+
+
+
+
+*/
+
+@media (max-width: 769px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        margin: 0 auto;
+    }
+
+    /* 첫째줄 */
+
+    .header .top_banner {
+        display: none;
+        border-bottom: 1px solid #ddd;
+        line-height: 40px;
+    }
+
+    .header .top_banner span {
+        margin: 0 0 0 auto;
+    }
+
+    .header .top_banner a {
+        margin: 0 0 0 10px;
+        padding: 0 10px;
+        border-right: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+
+    /* 둘째줄 */
+
+    .header h1 {
+        padding: 0 15px;
+    }
+
+    .header .gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        background: #fff;
+        width: calc(100% - 90px);
+        height: 100vh;
+        z-index: 999;
+        border-right: 1px solid #333;
+        margin: 0 0 0 auto;
+        transition: 1s;
+    }
+
+    .header .gnb.on {
+        left: 0;
+    }
+
+    .header .gnb>ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        line-height: 40px;
+        font-size: 19px;
+        font-weight: 500;
+        padding: 50px 15px;
+    }
+
+    .header .gnb>ul a {
+        display: block;
+        border-bottom: 1px solid #ddd;
+
+    }
+
+    /* 메인비주얼*/
+    .main_visual {
+        position: relative;
+        height: calc(100vh - 90px);
+        background: url(../img/main_slider01.jpg) no-repeat right top/cover;
+    }
+
+    .main_visual .slogan {
+        display: none;
+        position: absolute;
+        top: 100px;
+        right: 650px;
+    }
+
+    /* 슬릭슬라이더 */
+    .main_slider {
+        position: absolute;
+        top: auto;
+        bottom: 150px;
+        left: 0;
+        transform: translate(0, 0);
+        /* absolute에서 width는 auto가 아니라 100% */
+        width: 100%;
+        padding: 0 30px;
+        text-align: center;
+    }
+
+    .main_slider .itm {
+        height: 300px;
+    }
+
+    .main_slider h3 {
+        font-size: 11vw;
+        font-weight: 900;
+        margin: 10px 0;
+        color: transparent;
+        background: linear-gradient(to top, #064199, #78b3e4);
+        -webkit-background-clip: text;
+        line-height: 2;
+    }
+
+    .main_slider p {
+        line-height: 20px;
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .main_slider strong {
+        display: block;
+        margin: 0 0 20px 0;
+        color: #ff7f16;
+        font-weight: 400;
+    }
+
+    /* slick-dots 박스 전체 */
+    .main_slider .slick-dots {
+        text-align: center;
+        padding: 20px 0 0 0;
+    }
+
+    /* slick-dots 박스 안의 li 한줄한줄들, 모이면 slick-dots 박스 전체 */
+    .main_slider .slick-dots li {
+        /* slick안에서는 충돌날 수 있으니 flex대신에 inline-block이걸 사용 */
+        display: inline-block;
+        margin: 0 10px 0 0;
+        width: 10px;
+        height: 10px;
+        background: rgb(243, 243, 243);
+        transition: 1s;
+    }
+
+    /* slick-dots 박스 안의 li중에 활성화 되고 있는 한줄 */
+    .main_slider .slick-dots li.slick-active {
+        background: #ff7f16;
+    }
+
+    /* 기본 dots형태 번호 붙여진 그거 */
+    .main_slider .slick-dots button {
+        display: none;
+    }
+
+
+    /* 메인배너 */
+    .main_banner {
+        transform: translatey(0);
+    }
+
+    .main_banner .container {
+        height: auto;
+        /* 꽉채우기 위한 설정 */
+        align-items: stretch;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .main_banner figure {
+        /* 자기자신의 크기조절을 말함 */
+        /* 이게뭐죠????? */
+        flex: 1 1 50%;
+        height: 200px;
+        transition: 0.5s;
+        /* 자기 자식인 .main_banner figure a를 flex먹이고, 놓을 위치 설정 */
+        /* display: flex는 block도 되면서 align-items, justify-content로 위치조정도 가능!! */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 이걸 위해서 .main_banner .container를 220px크기로 맞춤 */
+    .main_banner figure:hover {
+        height: 200px;
+    }
+
+    /* css에서는 nth가 1부터 시작! */
+    .main_banner figure:nth-child(1) {
+        background: #da544b;
+    }
+
+    .main_banner figure:nth-child(2) {
+        background: #f3ca4f;
+    }
+
+    .main_banner figure:nth-child(3) {
+        background: #337688;
+    }
+
+    .main_banner figure:nth-child(4) {
+        background: #6fa376;
+    }
+
+    .main_banner figure a {
+        /* a자체는 높이 너비 안먹음 (text꼴), 그래서 block처리를 해줘야 먹는다~ */
+        /* display: flex는 block도 되면서 align-items, justify-content로 위치조정도 가능!! */
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 100px;
+        height: 120px;
+        font-size: 13px;
+        color: #fff
+    }
+
+    .main_banner figure:nth-child(1) a {
+        background: url(../img/icon_set_w.png) no-repeat 0 0;
+    }
+
+    .main_banner figure:nth-child(2) a {
+        background: url(../img/icon_set_w.png) no-repeat -100px 0;
+    }
+
+    .main_banner figure:nth-child(3) a {
+        background: url(../img/icon_set_w.png) no-repeat -200px 0;
+    }
+
+    .main_banner figure:nth-child(4) a {
+        background: url(../img/icon_set_w.png) no-repeat -300px 0;
+    }
+
+    .main_banner .customer {
+        position: relative;
+        flex: 2;
+        height: 200px;
+        text-align: right;
+        background: rgb(245, 245, 245);
+        padding: 50px 30px 0 0;
+    }
+
+    .main_banner .customer a {
+        display: block;
+        margin: 0 0 15px 0;
+        font-size: 38px;
+        color: rgb(19, 19, 116);
+        font-weight: 700;
+    }
+
+    .main_banner .customer p {
+        font-weight: 200;
+        line-height: 23px;
+    }
+
+    .main_banner .customer i {
+        position: absolute;
+        top: -29px;
+        right: 30px;
+        color: #fff;
+        background: #e7948f;
+        font-size: 38px;
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+
+
+    /* 메인링크 */
+    .main_link {
+        padding: 0 0 80px 0;
+        background: linear-gradient(to top, #f7f7f7 50%, transparent 50%);
+    }
+
+    .main_link .container {
+        padding: 50px 15px;
+        gap: 30px;
+    }
+
+    .main_link figure {
+        position: relative;
+        flex: 1;
+    }
+
+    .main_link figure p {
+        font-size: 13px;
+        font-weight: 250;
+        line-height: 23px;
+    }
+
+    .main_link figure a {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        width: 60px;
+        height: 60px;
+        background: rgba(245, 217, 132, 0.6);
+        text-align: center;
+        line-height: 60px;
+        color: #fff;
+        border-radius: 50%;
+        text-transform: uppercase;
+        transition: 0.5s;
+    }
+
+    .main_link figure a:hover {
+        background: rgba(245, 217, 132, 1);
+        border-radius: 5px;
+    }
+
+    .main_link img {
+        border-radius: 50px 0 50px 0;
+        width: 100%;
+        margin: 0 0 30px 0;
+    }
+
+    .main_link h3 {
+        margin: 0 0 15px 0;
+        font-size: 23px;
+    }
+
+    /* 가상요소~ 읽을수도 없는거니깐 디자인적 요소 만들때만 사용 */
+    .main_link h3::after {
+        content: "";
+        /* 블럭은 다음 줄에 가상요소 생성 */
+        display: block;
+        width: 80px;
+        height: 2px;
+        background: #e7948f;
+        margin: 15px 0 0 0;
+    }
+
+
+
+    .footer {
+        border-top: 1px solid #ddd;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .footer ul>li {
+        display: inline-block;
+        padding: 5px 7px;
+    }
+
+    /* 이렇게도 가능하다~
+    .footer ul {
+        display: flex;
+        justify-content: center;
+} */
+
+    /* 물결은 자기자신 제외 옆의 형제들 선택한다는 말 */
+    .footer ul>li~li::before {
+        content: "";
+        /* 인라인 블럭은 같은 줄에 가상요소 생성 */
+        display: none;
+        width: 1px;
+        height: 13px;
+        background: #333;
+        margin: 0 15px;
+        vertical-align: center;
+    }
+
+    .footer ul {
+        margin: 10px 0;
+    }
+
+    .footer address {
+        font-style: normal;
+    }
+
+    .mopen {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        width: 30px;
+        height: 30px;
+        background: #ddd;
+
+    }
+
+    .mopen span {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        height: 3px;
+        background: #333;
+        transition: 1s;
+    }
+
+    .mopen span:nth-child(1) {
+        top: 5px;
+    }
+
+    .mopen span:nth-child(2) {
+        top: 13px;
+    }
+
+    .mopen span:nth-child(3) {
+        top: 13px;
+    }
+
+    .mopen span:nth-child(4) {
+        top: 21px;
+    }
+
+    .mopen.on span:nth-child(1) {
+        display: none;
+    }
+
+    .mopen.on span:nth-child(2) {
+        top: 13px;
+        transform: rotate(45deg);
+    }
+
+    .mopen.on span:nth-child(3) {
+        top: 13px;
+        transform: rotate(-45deg);
+    }
+
+    .mopen.on span:nth-child(4) {
+        display: none;
+
+    }
 }

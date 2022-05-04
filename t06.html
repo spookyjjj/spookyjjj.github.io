@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 홈페이지</title>
+    <style>
+        /* figure에 내장된 기본 margin을 없애기 위해서 reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #333;
+        }
+
+        .responsive {
+            background: red;
+        }
+
+        .responsive span {
+            display: none;
+        }
+
+        .res02 {
+            display: flex;
+            gap: 50px;
+            /* width:auto;로 해놓으면 창 줄여도 가로 스크롤 안생김 */
+            width: auto;
+            margin: 0 auto;
+        }
+
+        .res02 figure {
+            flex: 1;
+            background: yellow;
+        }
+
+        nav {
+            background: red;
+        }
+
+        nav>ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            line-height: 40px;
+        }
+
+        nav>ul a {
+            display: block;
+            padding: 0 15px;
+            color: #fff;
+        }
+
+        .mopen {
+            /* 텍스트라도 fixed먹으면 높이 너비 먹는다 */
+            display: none;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .mopen::before {
+            content: "O";
+        }
+
+        .mopen.on::before {
+            content: "X";
+        }
+
+        /* 여기에선 px뒤에;쓰면 안됨~! */
+        @media (max-width: 768px) {
+            .responsive {
+                background: #369;
+            }
+
+            .responsive span {
+                display: block;
+            }
+
+            .res02 {
+                flex-direction: column;
+            }
+
+            .res02 figure {
+                flex: 1;
+                background: red;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                /* 메뉴바 누르기 전까지는 뷰포인트 바깥에 위치하게함 */
+                left: -100%;
+                background: #fff;
+                /* 90px남기고 100채우는 함수 */
+                width: calc(100% - 90px);
+                /* vh단위??????????????? */
+                height: 100vh;
+                padding: 50px 15px;
+                transition: 1s;
+            }
+
+            /* 왜 nav.on 이지? nav .on이 아니고???
+            nav태그이면서 .on이라는 클래스이름도 가진놈이라서 */
+            nav.on {
+                left: 0;
+            }
+
+            /* 여기서부터 다 놓힘 */
+            nav>ul {
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            nav>ul a {
+                padding: 10px 15px;
+                border-bottom: 1px solid #333;
+                /* background: yellow; */
+                color: #333;
+            }
+
+            .mopen {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="responsive">
+        <h1><span>선택장애있음.</span></h1>
+    </div>
+
+    <div class="res02">
+        <figure>01</figure>
+        <figure>02</figure>
+        <figure>03</figure>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="">menu01</a></li>
+            <li><a href="">menu02</a></li>
+            <li><a href="">menu03</a></li>
+            <li><a href="">menu04</a></li>
+        </ul>
+    </nav>
+
+    <div class="mopen">
+
+    </div>
+
+    <script>
+        document.querySelector('.mopen').addEventListener('click', function () {
+            document.querySelector('nav').classList.toggle('on');
+            //같은말 document.querySelector('.mopen').classList.toggle('on')
+            this.classList.toggle('on');
+        })
+    </script>
+</body>
+
+</html>
