@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover기능을 이용한 다단메뉴03</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        /* a자체의 속성(밑줄,색)이 내가 설정한 스타일에 우선하기 때문에 리셋필요 */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        h1 {
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+        }
+
+        nav {
+            position: relative;
+            /* slogan이 적힌 visual도 position을 이용, 이보다 위에 존재해야 하기때문에 z인덱스 줌*/
+            z-index: 999;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav>ul {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav>ul>li {
+            position: relative;
+            line-height: 40px;
+        }
+
+        nav>ul>li ul {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            /* height 0을 줘도 밖으로 튀어나옴 inline이라서?! -> 0 넘는 애들을 감춰줘야함 */
+            /* height 0 과 overflow hidden은 세트라고 기억하기 */
+            height: 0;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        /* nav:hover>ul이 되면 전체 작은메뉴가 내려옴 */
+        nav:hover>ul>li ul {
+            height: 160px;
+        }
+
+        nav::before {
+            content: "";
+            /* relative는 nav에있음 */
+            position: absolute;
+            top: 41px;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: #ff0;
+            transition: 0.5s;
+        }
+
+        nav:hover::before {
+            height: 160px;
+            /* nav가 아니라 여기에 z인덱스 줘버리면 ::before이 다 덮음
+            nav에 z인덱스 줘야 nav, visual중에 nav가 우선하는 것 */
+            /* z-index: 999; */
+        }
+
+        .visual {
+            position: relative;
+            background: #ddd;
+            color: #fff;
+            text-align: center;
+            line-height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>다단메뉴</h1>
+    <nav>
+        <!-- ul>li*5>a{menu0$}+ul>li*4>a{smenu0$} -->
+        <ul>
+            <li>
+                <a href="">menu01</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu02</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu03</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu04</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu05</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <section class="visual">
+        slogan
+    </section>
+</body>
+
+</html>

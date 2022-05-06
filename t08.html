@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰 느낌내기</title>
+    <link rel="stylesheet" href="./trn01/css/reset.css">
+    <style>
+        img {
+            max-width: 100%;
+        }
+
+        section h2 {
+            font-size: 21px;
+            font-weight: 500;
+            margin: 0 0 30px 0;
+        }
+
+        section h2::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 60px;
+            background: #f00;
+            margin: 20px auto;
+        }
+
+        section p {
+            font-size: 15px;
+            font-weight: 300;
+            margin: 0 0 30px 0;
+        }
+
+        section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        section .container {
+            display: flex;
+            width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+        }
+
+        /* 상품이미지 확대 */
+        .cont01 figure:hover img {
+            transform: scale(1.25);
+            /* hover되었을때의 img에 transition걸면 hover되었을때만 보장, back은 no*/
+            transition: 0.5s;
+        }
+
+        .cont01 figure img {
+            /* img자체에 transition을 걸면 back했을때도 적용됨 */
+            transition: 1s;
+        }
+
+        .cont01 figure .inbox {
+            /* img가 커지면서 a의 영역까지 침범하니, img만을 감싼 inbox를 만들고 이것을 넘으면 안보이도록 설정 */
+            overflow: hidden;
+        }
+
+
+        /* 중앙에 more링크 */
+        .cont02 figure {
+            position: relative;
+        }
+
+        .cont02 figure a {
+            /* 아래 네줄이 창 가운데 위치하게 하는 공식 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 위 네줄이 창 가운데 위치하게 하는 공식 */
+            border: 1px solid #333;
+            background: #fff;
+            padding: 0 20px;
+            line-height: 30px;
+            height: 34px;
+            /* display none block은 transition이 안먹는다!! -> visibility나 overflow hidden visible사용 */
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .cont02 figure:hover a {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* 장바구니 등장 */
+        .cont03 figure {
+            position: relative;
+            /* figure가 img와 a를 포함하고 있는데 overflow로 a가 왜 가려지는가? */
+            /* -> a의 position을 figure을 기준으로 bottom -값을 먹였기 때문에 overflow하는중임 */
+            overflow: hidden;
+        }
+
+        .cont03 figure a {
+            position: absolute;
+            right: 0;
+            bottom: -30px;
+            transition: 0.5s;
+            border: 1px solid #333;
+            background: #fff;
+            padding: 0 20px;
+            line-height: 30px;
+            height: 30px;
+        }
+
+        .cont03 figure:hover a {
+            bottom: 0;
+        }
+
+        /* 선택상품 흐리게 */
+        .cont04 .inbox {
+            position: relative;
+        }
+
+        .cont04 .inbox::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid #333;
+            border-left: 1px solid #333;
+            transition: 1s;
+            /* ::brfore ::after에는 *{box-sizing: border-box}해놓은게 안먹혀 있다!! */
+            /* 가상요소는 *태그로 잡히지 않기때문!! 따라서 따로 설정해줘야 한다 */
+            box-sizing: border-box;
+            opacity: 0;
+        }
+
+        .cont04 .inbox::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            transition: 1s;
+            /* ::brfore ::after에는 *{box-sizing: border-box}해놓은게 안먹혀 있다!! */
+            /* 가상요소는 *태그로 잡히지 않기때문!! 따라서 따로 설정해줘야 한다 */
+            box-sizing: border-box;
+            opacity: 0;
+        }
+
+        .cont04 .inbox:hover::before,
+        .cont04 .inbox:hover::after {
+            /* 보통박스에서는 height 100%는 안먹는데, 기준(absolute/relative)이 있다면 먹는다 */
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 상품이미지 확대 -->
+    <section class="cont01">
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, libero!</p>
+        <div class="container">
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                </div>
+                <a href="">more</a>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                </div>
+                <a href="">more</a></img>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                </div>
+                <a href="">more</a></img>
+            </figure>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- 중앙에 more링크 -->
+    <section class="cont02">
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, libero!</p>
+        <div class="container">
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                </div>
+                <a href="">more</a>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                </div>
+                <a href="">more</a></img>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                </div>
+                <a href="">more</a></img>
+            </figure>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- 장바구니 등장 -->
+    <section class="cont03">
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, libero!</p>
+        <div class="container">
+            <figure>
+                <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                <a href=""><i class="xi-cart"></i></a>
+            </figure>
+            <figure>
+                <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                <a href=""><i class="xi-cart"></i></a>
+            </figure>
+            <figure>
+                <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                <a href=""><i class="xi-cart"></i></a>
+            </figure>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- 선택상품 흐리게 -->
+    <section class="cont04">
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, libero!</p>
+        <div class="container">
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                </div>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                </div>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt=""></img>
+                </div>
+            </figure>
+        </div>
+    </section>
+</body>
+
+</html>

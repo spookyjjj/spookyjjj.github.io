@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover기능을 이용한 다단메뉴02</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        /* a자체의 속성(밑줄,색)이 내가 설정한 스타일에 우선하기 때문에 리셋필요 */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        h1 {
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+        }
+
+        nav {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav>ul {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav>ul>li {
+            position: relative;
+            line-height: 40px;
+        }
+
+        /* display none block은 transition이 안먹어서
+            ->overflow hidden(visibility hidden)을 이용*/
+        nav>ul>li ul {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            color: #333;
+            background: #ff0;
+            /* height 0을 줘도 밖으로 튀어나옴 inline이라서?! -> 0 넘는 애들을 감춰줘야함 */
+            /* height 0 과 overflow hidden은 세트라고 기억하기 */
+            height: 0;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        /* nav>ul>li:hover이 아니라 nav:hover>ul>li이 되면
+        (nav>ul>li=큰메뉴들 !!!각각!!!)이 특정되서 hover먹는게 아니게 되므로
+        작은메뉴 전부가 내려옴 */
+        nav:hover>ul>li ul {
+            /* height에 auto를 주면 transition이 안먹음 현상이기때문에~ 
+            따라서 수치값을 줘야 transition이 먹음 */
+            height: 160px;
+        }
+
+        .visual {
+            background: #ddd;
+            color: #fff;
+            text-align: center;
+            line-height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>다단메뉴</h1>
+    <nav>
+        <!-- ul>li*5>a{menu0$}+ul>li*4>a{smenu0$} -->
+        <ul>
+            <li>
+                <a href="">menu01</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu02</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu03</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu04</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">menu05</a>
+                <ul>
+                    <li><a href="">smenu01</a></li>
+                    <li><a href="">smenu02</a></li>
+                    <li><a href="">smenu03</a></li>
+                    <li><a href="">smenu04</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <section class="visual">
+        slogan
+    </section>
+</body>
+
+</html>
