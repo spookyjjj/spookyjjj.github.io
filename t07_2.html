@@ -55,7 +55,7 @@
             left: 0;
             color: #333;
             background: #ff0;
-            /* height 0을 줘도 밖으로 튀어나옴 inline이라서?! -> 0 넘는 애들을 감춰줘야함 */
+            /* height 0을 줘도 text는 박스 밖으로 튀어나옴!! -> 0 넘는 애들을 감춰줘야함 */
             /* height 0 과 overflow hidden은 세트라고 기억하기 */
             height: 0;
             overflow: hidden;
@@ -66,8 +66,10 @@
         (nav>ul>li=큰메뉴들 !!!각각!!!)이 특정되서 hover먹는게 아니게 되므로
         작은메뉴 전부가 내려옴 */
         nav:hover>ul>li ul {
-            /* height에 auto를 주면 transition이 안먹음 현상이기때문에~ 
+            /* height에 auto를 주면 transition이 안먹음. 현상이기때문에~ 
             따라서 수치값을 줘야 transition이 먹음 */
+            /* height 0 넘으면 hidden이었는데 
+            height가 160이 되면 넘는게 없어지니깐 hidden될것도 없음 */
             height: 160px;
         }
 
