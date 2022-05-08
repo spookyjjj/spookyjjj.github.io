@@ -33,10 +33,12 @@
 
         nav {
             position: relative;
-            /* slogan이 적힌 visual도 position을 이용, 이보다 위에 존재해야 하기때문에 z인덱스 줌*/
-            z-index: 999;
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
+            /* 뒤에 나온 visual(부모)이 먼저 나온 nav(부모)를 덮으므로, (둘다 position먹은 경우에)
+            z-index를 줘서 visual보다 튀어나오게함.
+            부모박스 자체가 맨 위고, 자식들은 그 안에서 nav->nav::before->ul->ul의ul식으로 덮힘*/
+            z-index: 999;
         }
 
         nav>ul {
@@ -54,7 +56,7 @@
             position: absolute;
             top: 40px;
             left: 0;
-            /* height 0을 줘도 밖으로 튀어나옴 inline이라서?! -> 0 넘는 애들을 감춰줘야함 */
+            /* height 0을 줘도 text는 박스 밖으로 튀어나옴!! -> 0 넘는 애들을 감춰줘야함 */
             /* height 0 과 overflow hidden은 세트라고 기억하기 */
             height: 0;
             overflow: hidden;
@@ -70,22 +72,28 @@
             content: "";
             /* relative는 nav에있음 */
             position: absolute;
-            top: 41px;
+            top: 21px;
             left: 0;
             width: 100%;
             height: 0;
             background: #ff0;
             transition: 0.5s;
+            /* nav가 아니라 여기에 z인덱스 줘버리면 nav::before이 젤 위에서 다 덮음
+            다른곳에 z-index값이 하나도 없고 한 곳에만 주어질 경우엔 그게 젤 우선시 된다는 것!! */
+            /* 만약 z-index값이 100, 200, 300 등 곳곳에 존재한다면, 
+            부모level에서 따지고 자식level에서도 따지고 해야함~~  */
+            /* z-index: 999; */
         }
 
         nav:hover::before {
             height: 160px;
-            /* nav가 아니라 여기에 z인덱스 줘버리면 ::before이 다 덮음
-            nav에 z인덱스 줘야 nav, visual중에 nav가 우선하는 것 */
-            /* z-index: 999; */
         }
 
         .visual {
+            /* visual 안에 슬라이드 등을 넣으면,
+             슬라이드가 absolute, visual이 relative 될 것이므로, 이를 미리 가정해놓음
+             왜냐하면 position 먹은 애들끼리는 z index까지 고려해야 하기 때문에
+             그것까지 실습해보기 위해서~~ */
             position: relative;
             background: #ddd;
             color: #fff;
