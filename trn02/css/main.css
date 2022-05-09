@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    /* 전체 container에 flex줬다면 -> block해야할 container마다 설정해야 함
+    전체 container에 flex 안줬다면 flex할 container마다 설정해야 함 */
+    display: flex;
+}
+
+/* header부분 */
+/* top_banner칸 */
+.top_banner {
+    background: #f1f1f1;
+    padding: 25px 0;
+}
+
+.top_banner .container {
+    display: block;
+}
+
+.top_banner h2 {
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'Nanum Myeongjo', serif;
+    margin: 0 0 10px 0;
+}
+
+.top_banner p {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.top_banner a {
+    /* 인라인은 좌우로는 패딩/마진을 먹지만, 위아래로는 패딩/마진을 안먹음! */
+    /* -> 위아래로 패딩/마진 먹은것 처럼 보일 순 있겠지만 공간을 차지하고 있는건 아님 */
+    padding: 2px 15px 4px 15px;
+    border: 1px solid #333;
+    margin: 0 0 0 20px;
+}
+
+.top_banner i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background: #333;
+    border-radius: 50%;
+    color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* gnb칸 */
+
+/* 전체 container의 설정에서 display flex를 설정 안했다면
+    flex하고 싶은 container마다 잡아서 flex시켜주는 방법도 있음
+즉, .header>.gnb>.container {display: flex;} */
+
+.gnb {
+    line-height: 100px;
+}
+
+.gnb .container nav {
+    margin: 0 0 0 auto;
+}
+
+.gnb .container form {
+    margin: 0 0 0 25px;
+}
+
+/* 위 두줄의 코드로 각각에 마진을 잡아 띄어주는 방법도 있지만
+    아래의 방법으로도 잘 쓰임
+    .gnb .container { justify-content: space-between; } */
+
+nav>ul {
+    display: flex;
+}
+
+nav>ul>li~li::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 13px;
+    background: #ddd;
+    margin: 0 20px;
+    /* nav>ul>li {margin: 0 15px;} 할 것을 
+    nav>ul>li~li::before 에서 margin줘서 해결 */
+}
+
+/* 이부분은 reset.css에 넣어서 사용해도 좋음 */
+#seachForm input[type='text'] {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    padding: 5px 0;
+}
+
+#seachForm button {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 30px;
+}
+
+/* main부분 */
+
+/* 슬라이더칸 */
+.main_visual figure.item01 {
+    background: url(../img/mainvisual01.jpg) no-repeat center center/cover;
+
+}
+
+.main_visual figure.item02 {
+    background: url(../img/mainvisual02.jpg) no-repeat center center/cover;
+
+}
+
+.main_visual figure.item03 {
+    background: url(../img/mainvisual03.jpg) no-repeat center center/cover;
+
+}
+
+.main_visual figure {
+    /* 각각의 container마다 부모 figure가 기준이 되도록 */
+    position: relative;
+    height: 600px;
+}
+
+.main_visual figure .container {
+    /* 맨위에 container display flex 설정된거 block으로 변경  */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.main_visual figure .container h3 {
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0 0 20px 0;
+    /* 흰바탕에 흰글씨 -> 텍스트에 그림자 넣어 보이도록 (우측범위 아래측범위 블러범위 색) */
+    text-shadow: 0 0 2px #000;
+}
+
+.main_visual figure.item02 h3 {
+    color: #333;
+    text-shadow: 0 0 2px #fff;
+}
+
+.main_visual figure .container p {
+    font-size: 15px;
+    font-weight: 300;
+    margin: 0 0 20px 0;
+}
+
+.main_visual figure.item02 p {
+    color: #333;
+}
+
+.main_visual figure .container a {
+    /* 인라인블럭으로 줘야 글씨에 딱 맞는 박스 생성 */
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid #fff;
+    background: #333;
+    padding: 5px 20px 8px 20px;
+}
+
+.main_visual figure .container a:hover {
+    border: 1px solid #f00;
+    background: #fff;
+    color: #333;
+    transition: 0.5s;
+}
+
+/* 애니메이션 먹이기 */
+/* transform translate를 사용해야 레이아웃을 건들지 않으면서 애니메이션 넣기 가능!! */
+.main_visual figure h3 {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.main_visual figure.on h3 {
+    transform: translateY(0);
+    opacity: 1;
+    /* 현상이 붙은데다 트렌지션 걸어야 백에 안먹음 */
+    transition: 0.5s;
+}
+
+.main_visual figure p {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.main_visual figure.on p {
+    transform: translateY(0);
+    opacity: 1;
+    /* 현상이 붙은데다 트렌지션 걸어야 백에 안먹음 (걸리는시간 딜레이시간)*/
+    transition: 0.5s 0.5s;
+
+}
+
+.main_visual figure a {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.main_visual figure.on a {
+    transform: translateY(0);
+    opacity: 1;
+    /* 현상이 붙은데다 트렌지션 걸어야 백에 안먹음 (걸리는시간 딜레이시간)*/
+    transition: 0.5s 1s;
+
+}
+
+/* 슬릭슬라이더 버튼 꾸미기 */
+.main_visual .slick-dots {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* .slick-dots에는 display flex가 안먹는다
+    -> .slick-dots li에다가 inline-block 먹여야함 */
+}
+
+.main_visual .slick-dots li {
+    display: inline-block;
+    width: 80px;
+    height: 5px;
+    background: #333;
+    margin: 0 5px;
+}
+
+.main_visual .slick-dots li::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+    background: #f00;
+    opacity: 0.5;
+}
+
+.main_visual .slick-dots li.slick-active::after {
+    width: 100%;
+    opacity: 1;
+    transition: 3s;
+}
+
+.main_visual .slick-dots button {
+    display: none;
+}
+
+/* 디스플레이칸 */
+.main_display {
+    text-align: center;
+    line-height: 30px;
+    padding: 100px 0;
+}
+
+.main_display>h2 {
+    font-size: 25px;
+    font-weight: 100;
+    margin: 0 0 10px 0;
+    letter-spacing: 0.5em;
+}
+
+.main_display>p {
+    font-weight: 100;
+    margin: 0 0 30px 0;
+    letter-spacing: -0.025em;
+}
+
+.main_display .container {
+    gap: 30px;
+    justify-content: center;
+}
+
+.main_display img {
+    width: 100%;
+    transition: 0.5s;
+}
+
+.main_display .mold {
+    overflow: hidden;
+}
+
+.main_display img:hover {
+    transform: scale(1.25);
+
+}
+
+.main_display .display>p {
+    font-weight: 100;
+    margin: 10px 0;
+}
+
+.main_display .display>a {
+    /* 인라인블럭으로 줘야 글씨에 딱 맞는 박스 생성 */
+    display: inline-block;
+    border: 1px solid #333;
+    padding: 0 15px;
+}
+
+.main_display .display>a:hover {
+    background: #f00;
+    color: #ddd;
+}
+
+/* 메인의 배너칸 */
+.main_banner {
+    background: url(../img/mainvisual03.jpg) no-repeat center center/cover;
+    padding: 100px 0;
+    filter: grayscale(1);
+    text-align: center;
+    color: #ddd;
+}
+
+.main_banner h3 {
+    font-size: 30px;
+    font-weight: 800;
+    margin: 0 0 30px 0;
+}
+
+.main_banner p {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0 0 20px 0;
+}
+
+.main_banner i {
+    background: #000;
+    border-radius: 50%;
+    /* padding은 border안쪽 여백 */
+    padding: 10px;
+    /* margin은 border바깥쪽 여백 */
+    margin: 0 0 0 10px;
+}
