@@ -205,7 +205,7 @@ nav>ul>li~li::before {
     transform: translateY(0);
     opacity: 1;
     /* 현상이 붙은데다 트렌지션 걸어야 백에 안먹음 (걸리는시간 딜레이시간)*/
-    transition: 0.5s 0.25s;
+    transition: 0.5s 0.5s;
 
 }
 
@@ -217,9 +217,10 @@ nav>ul>li~li::before {
 .main_visual figure.on a {
     transform: translateY(0);
     opacity: 1;
-    /* 현상이 붙은데다 트렌지션 걸어야 백에 안먹음 (걸리는시간 딜레이시간)*/
-    transition: 0.5s 0.5s;
-
+    /* a에는 hover시 변화도 있으므로, figure.on과 안겹치도록 transition-poperty를 지정해줌*/
+    transition-property: transform, opacity;
+    transition-duration: 0.5s;
+    transition-delay: 1s;
 }
 
 /* 슬릭슬라이더 버튼 꾸미기 */

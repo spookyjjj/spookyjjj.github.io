@@ -4,14 +4,6 @@ $(function () {
         $('.top_banner').slideUp();
     });
 
-    // .main_slider 자식으로 figure들이 있어야 그걸 인식해서 slick-slider됨~!!
-    $('.main_slider').slick({
-        arrows: false,
-        dots: true,
-        autoplay: true,
-        pauseOnHover: false,
-        pauseOnFocus: false,
-    });
     $('.main_slider').on('init reInit afterChange', function () {
         // 슬릭슬라이더에서 정의한 init reInit afterChange이벤트
         console.log('변했네??');
@@ -21,6 +13,15 @@ $(function () {
         // current.addClass('on'); 만하면, 한번 붙으면 그 상태로 유지되니깐
         // 아래처럼 설정해서 .on을 붙었다 뗐다 해줌
         current.addClass('on').siblings().removeClass('on');
+    });
+
+    // .main_slider 자식으로 figure들이 있어야 그걸 인식해서 slick-slider됨~!!
+    $('.main_slider').slick({
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        pauseOnHover: false,
+        pauseOnFocus: false,
     });
 
     $('.movie .dec i:nth-of-type(1)').on('click', function () {
