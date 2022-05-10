@@ -15,8 +15,7 @@ body {
     display: flex;
 }
 
-/* header부분 */
-/* top_banner칸 */
+/* header-top_banner칸 */
 .top_banner {
     background: #f1f1f1;
     padding: 25px 0;
@@ -57,7 +56,7 @@ body {
     cursor: pointer;
 }
 
-/* gnb칸 */
+/* header-gnb칸 */
 
 /* 전체 container의 설정에서 display flex를 설정 안했다면
     flex하고 싶은 container마다 잡아서 flex시켜주는 방법도 있음
@@ -109,9 +108,8 @@ nav>ul>li~li::before {
     font-size: 30px;
 }
 
-/* main부분 */
 
-/* 슬라이더칸 */
+/* main-슬라이더칸 */
 .main_visual figure.item01 {
     background: url(../img/mainvisual01.jpg) no-repeat center center/cover;
 
@@ -261,88 +259,152 @@ nav>ul>li~li::before {
     display: none;
 }
 
-/* 디스플레이칸 */
-.main_display {
-    text-align: center;
-    line-height: 30px;
+/* main-베이직칸 */
+.basic {
     padding: 100px 0;
+    text-align: center;
+    line-height: 20px;
 }
 
-.main_display>h2 {
-    font-size: 25px;
-    font-weight: 100;
+/* 이제부터 section아래의 h2와 p에는 공통으로 이 서식 적용하겠다고 정함!! */
+section h2 {
+    font-size: 21px;
+    font-weight: 700;
     margin: 0 0 10px 0;
     letter-spacing: 0.5em;
 }
 
-.main_display>p {
+section p {
+    font-size: 15px;
     font-weight: 100;
     margin: 0 0 30px 0;
     letter-spacing: -0.025em;
 }
 
-.main_display .container {
+.basic .container {
     gap: 30px;
-    justify-content: center;
 }
 
-.main_display img {
-    width: 100%;
+.basic .container figure {
+    /* 이미지마다 사이즈가 다를시에는 이걸 줘야함!! */
+    flex: 1;
+}
+
+.basic img {
+    /* 커져봤자 부모 박스(figure. hover때문에 감싼 후에는 inbox) 안에서 100% */
+    max-width: 100%;
+    /* 여기에 트렌지션 걸면 백이 보장 */
     transition: 0.5s;
 }
 
-.main_display .mold {
+.basic .inbox {
     overflow: hidden;
+    margin: 0 0 20px 0;
+    border-radius: 50%;
+    /* 여기에 트렌지션 걸면 백이 보장 */
+    transition: 0.5s;
 }
 
-.main_display img:hover {
+.basic .inbox:hover {
+    border-radius: 100px;
+    /* 여기에 트렌지션 걸면 백이 안 보장 */
+    /* transition: 0.5s; */
+}
+
+.basic .inbox:hover img {
     transform: scale(1.25);
-
+    /* 여기에 트렌지션 걸면 백이 안 보장 */
+    /* transition: 0.5s; */
 }
 
-.main_display .display>p {
+.basic .display strong {
     font-weight: 100;
-    margin: 10px 0;
+    /* strong은 inline이라 block으로 바꿔줘야 margin먹는다 */
+    display: block;
+    margin: 0 0 20px 0;
 }
 
-.main_display .display>a {
+.basic .display a {
     /* 인라인블럭으로 줘야 글씨에 딱 맞는 박스 생성 */
     display: inline-block;
     border: 1px solid #333;
-    padding: 0 15px;
+    padding: 5px 20px;
 }
 
-.main_display .display>a:hover {
+.basic .display a:hover {
     background: #f00;
     color: #ddd;
 }
 
-/* 메인의 배너칸 */
-.main_banner {
-    background: url(../img/mainvisual03.jpg) no-repeat center center/cover;
+/* main-고정배경칸 */
+.fixed_bg {
     padding: 100px 0;
-    filter: grayscale(1);
     text-align: center;
-    color: #ddd;
+    line-height: 20px;
+    color: #fff;
+    background: url(../img/mainvisual03.jpg) no-repeat fixed center center/cover;
+    /* background-attachment: fixed;도 위의 백그라운드 축약형에 들어감.
+    fixed되면 center center로 위치 잡아준거 무시됨 */
+    filter: grayscale(1);
 }
 
-.main_banner h3 {
-    font-size: 30px;
-    font-weight: 800;
-    margin: 0 0 30px 0;
+.fixed_bg p {
+    margin: 0 0 15px 0;
 }
 
-.main_banner p {
-    font-size: 14px;
-    font-weight: 300;
-    margin: 0 0 20px 0;
-}
-
-.main_banner i {
+.fixed_bg i {
     background: #000;
     border-radius: 50%;
     /* padding은 border안쪽 여백 */
     padding: 10px;
     /* margin은 border바깥쪽 여백 */
     margin: 0 0 0 10px;
+}
+
+/* main-비디오칸 */
+.movie {
+    padding: 100px 0;
+}
+
+.movie .container {
+    gap: 50px;
+}
+
+.movie .container figure {
+    flex: 1;
+}
+
+.movie .container .dec {
+    flex: 1;
+    padding: 100px 0;
+}
+
+.movie video {
+    max-width: 100%;
+}
+
+.movie .dec i {
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    margin: 0 5px 0 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* main-유튜브칸 */
+.utube {
+    padding: 150px 0;
+    text-align: center;
+    color: #ddd;
+    filter: grayscale(1);
+}
+
+.utube i {
+    padding: 20px;
+    background: rgba(51, 51, 51, 0.5);
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 50%;
 }

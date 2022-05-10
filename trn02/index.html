@@ -8,13 +8,13 @@
     <title>Graff</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/slick.css">
+    <link rel="stylesheet" href="./css/jquery.mb.YTPlayer.min.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
     <!-- Warp 안에 header, main, footer -->
     <div class="Wrap">
-        <!-- header부분 -->
         <header class="header">
             <!-- top_banner칸 -->
             <div class="top_banner">
@@ -58,6 +58,7 @@
                 </div>
             </div>
         </header>
+        
         <main>
             <section class="main_visual">
                 <div class="main_slider">
@@ -89,44 +90,71 @@
                         </div>
                     </figure>
                 </div>
-                <div class="main_display">
-                    <h2>JEWELLERY COLLECTION</h2>
-                    <p>
-                        모던하면서도 클래식한 디자인들을 완벽하게 표현한 그라프 하우스의 시그너쳐 컬렉션은 다양한 컷
-                    </p>
-                    <div class="container">
-                        <div class="display">
-                            <div class="mold"><img src="./img/lesedilarona01.jpg" alt=""></div>
-                            <p>스톤 그리고 색상들을 멋진 조합</p>
-                            <a href="#!">구매하기</a>
-                        </div>
-                        <div class="display">
-                            <div class="mold"><img src="./img/lesedilarona02.jpg" alt=""></div>
-                            <p>스톤 그리고 색상들을 멋진 조합</p>
-                            <a href="#!">구매하기</a>
-                        </div>
-                        <div class="display">
-                            <div class="mold"><img src="./img/lesedilarona03.jpg" alt=""></div>
-                            <p>스톤 그리고 색상들을 멋진 조합</p>
-                            <a href="#!">구매하기</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="main_banner">
-                    <h3>JEWELLERY COLLECTION</h3>
-                    <p>모던하면서도 클래식한 디자인들을 완벽하게 표현한 그라프 하우스의 시그너쳐 컬렉션은 다양한 컷</p>
-                    <a href="#!">more <i class="xi-arrow-right"></i></a>
+            </section>
+
+            <section class="basic">
+                <h2>JEWELLERY COLLECTION</h2>
+                <p>
+                    모던하면서도 클래식한 디자인들을 완벽하게 표현한 그라프 하우스의 시그너쳐 컬렉션은 다양한 컷
+                </p>
+                <div class="container">
+                    <figure class="display">
+                        <div class="inbox"><img src="./img/lesedilarona01.jpg" alt=""></div>
+                        <!-- reset.css써놓고 strong태그를 쓰는 이유 -> 또 p를 쓰면 위에쓴 p와 헷갈리니깐,
+                            애들마다 클래스 붙여주는 대신에, 그냥 있는 태그 사용
+                            단, strong은 inline이라 줄바꿈 마진 안먹음. block처리 해줘야 먹음
+                            p는 box라 바로 줄바꿈 마진 먹음. -->
+                        <strong>스톤 그리고 색상들을 멋진 조합</strong>
+                        <a href="#!">구매하기</a>
+                    </figure>
+                    <figure class="display">
+                        <div class="inbox"><img src="./img/lesedilarona02.jpg" alt=""></div>
+                        <strong>스톤 그리고 색상들을 멋진 조합</strong>
+                        <a href="#!">더 많이 구매하기</a>
+                    </figure>
+                    <figure class="display">
+                        <div class="inbox"><img src="./img/lesedilarona03.jpg" alt=""></div>
+                        <strong>스톤 그리고 색상들을 멋진 조합</strong>
+                        <a href="#!">구매하기</a>
+                    </figure>
                 </div>
             </section>
-        </main>
-        <footer class="footer">
 
+            <section class="fixed_bg">
+                <h2>JEWELLERY COLLECTION</h2>
+                <p>모던하면서도 클래식한 디자인들을 완벽하게 표현한 그라프 하우스의 시그너쳐 컬렉션은 다양한 컷</p>
+                <span>more</span><a href="#!"><i class="xi-arrow-right"></i></a>
+            </section>
+
+            <section class="movie">
+                <div class="container">
+                    <figure><video src="./img/movie.mp4" muted autoplay loop></video></figure>
+                    <div class="dec">
+                        <h2>JEWELLERY COLLECTION</h2>
+                        <p>모던하면서도 클래식한 디자인들을 완벽하게 표현한 그라프의 시그너쳐 컬렉션은 다양한 컷</p>
+                        <i class="xi-play"></i>
+                        <i class="xi-pause"></i>
+                    </div>
+                </div>
+            </section>
+
+            <section class="utube">
+                <div class="player" id="myMovie"></div>
+                <h2>JEWELLERY COLLECTION</h2>
+                <p>모던하면서도 클래식한 디자인들을 완벽하게 표현한 그라프 하우스의 시그너쳐 컬렉션은 다양한 컷</p>
+                <i class="xi-play"></i>
+                <i class="xi-pause"></i>
+            </section>
+
+        </main>
+        
+        <footer class="footer">
         </footer>
     </div>
 
-
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script src="./js/slick.min.js"></script>
+    <script src="./js/jquery.mb.YTPlayer.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
 
