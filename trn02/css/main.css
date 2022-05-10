@@ -205,7 +205,7 @@ nav>ul>li~li::before {
     transform: translateY(0);
     opacity: 1;
     /* 현상이 붙은데다 트렌지션 걸어야 백에 안먹음 (걸리는시간 딜레이시간)*/
-    transition: 0.5s 0.5s;
+    transition: 0.5s 0.25s;
 
 }
 
@@ -218,7 +218,7 @@ nav>ul>li~li::before {
     transform: translateY(0);
     opacity: 1;
     /* 현상이 붙은데다 트렌지션 걸어야 백에 안먹음 (걸리는시간 딜레이시간)*/
-    transition: 0.5s 1s;
+    transition: 0.5s 0.5s;
 
 }
 

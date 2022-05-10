@@ -9,7 +9,7 @@ $(function () {
         arrows: false,
         dots: true,
         autoplay: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         pauseOnFocus: false,
     });
     $('.main_slider').on('init reInit afterChange', function () {
@@ -32,11 +32,11 @@ $(function () {
 
     $("#myMovie").YTPlayer({
         videoURL: 'https://youtu.be/G7dUt84Fd_w',
-        containment: '.utube', 
-        autoPlay: true, 
-        mute: true, 
-        startAt: 0, 
-        opacity: 1, 
+        containment: '.utube',
+        autoPlay: true,
+        mute: true,
+        startAt: 0,
+        opacity: 1,
         showControls: false,
         playOnlyIfVisible: true,
     });
