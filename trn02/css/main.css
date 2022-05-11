@@ -409,3 +409,235 @@ section p {
     margin: 0 5px;
     border-radius: 50%;
 }
+
+/* main-프로덕트칸 */
+
+/* 리본추가 시작*/
+.product_list .container {
+    position: relative;
+    display: block;
+}
+
+.product_list small {
+    position: absolute;
+    display: inline-block;
+    border-top: 15px solid #f00;
+    border-bottom: 15px solid #f00;
+    border-right: 15px solid transparent;
+    border-left: 50px solid #f00;
+    top: 6px;
+    right: 200px;
+}
+
+.product_list span {
+    position: absolute;
+    top: -8px;
+    left: -35px;
+    color: #fff;
+    font-size: 13px;
+}
+
+/* 리본추가 끝 */
+
+.product_list {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.product_list .product_slider {
+    /* figure에 좌우로 15씩 padding 넣었으니깐, 전체가 1200으로 보이려면 1230으로 잡아줌 */
+    width: 1230px;
+    margin: 0 auto;
+}
+
+.product_list .product_slider figure {
+    /* figure들 사이(가로간격)를 띄우기 위해 좌우로 15패딩 */
+    /* 상하로 32패딩 준 것은 현재슬라이드 확대 되었을 때, overflow hidden 먹힌것을 감추기 위해! */
+    padding: 32px 15px;
+}
+
+.product_list .imgbox {
+    /* img와 strong사이(세로간격)를 띄우기 위해 */
+    margin: 3px 0;
+}
+
+/* 좌우 이동버튼 위치주기 */
+.product_list .inbox {
+    position: relative;
+}
+
+.product_list i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #fff;
+    background: #333;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.product_list i.s_left {
+    margin: 0 0 0 -700px;
+    /* left: 100px; */
+}
+
+.product_list i.s_right {
+    margin: 0 0 0 700px;
+    /* left: auto; */
+    /* right: 100px; */
+}
+
+/* 현재슬라이드 확대 */
+.product_list figure {
+    transition: 0.5s;
+}
+
+/* .product_list .slick-center.on img { */
+.product_list .slick-current.on {
+    transform: scale(1.2);
+}
+
+/* 제품슬라이드 버튼 꾸미기 */
+.product_list ul.slick-dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0 0 0;
+}
+
+.product_list ul.slick-dots li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #333;
+}
+
+.product_list .slick-dots .slick-active {
+    background: #f00;
+}
+
+.product_list .slick-dots button {
+    display: none;
+}
+
+/* main-tab칸 */
+.tab {
+    padding: 100px 0;
+    text-align: center;
+    background: #f7f7f7;
+}
+
+.tab .container {
+    gap: 30px;
+}
+
+.tab .tab_wrap {
+    flex: 1;
+}
+
+.tab figure {
+    flex: 1;
+}
+
+.tab_link {
+    display: flex;
+    line-height: 40px;
+}
+
+.tab_link>li {
+    flex: 1;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.tab_link>li~li {
+    border-left: 1px solid #fff;
+}
+
+.tab_link>li.on {
+    background: #f00;
+}
+
+/* content가 되는 li>dl>dd들이 각각 박스! 탑처럼 차곡차곡 쌓여있다 -> 중간거 빼면 빈자리 매꾸면서 쌓음*/
+.tab_content>li {
+    display: none;
+}
+
+.tab_content>li.on {
+    display: block;
+}
+
+.tab_content>li dd {
+    display: flex;
+    justify-content: space-between;
+    line-height: 45px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab_content>li dd strong {
+    /* 말줄임표 만들기 */
+    /* flex속성 때문에 nowrap하면 박스 자체가 늘어나게 되므로, 그냥 너비값을 지정해줌 */
+    white-space: nowrap;
+    width: 480px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* footer */
+.footer {
+    background: #333;
+    padding: 0 0 30px 0;
+    color: #fff;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 60px;
+}
+
+.footer .container {
+    justify-content: space-between;
+}
+
+.footer .footer_top ul {
+    display: flex;
+}
+
+.footer .footer_top ul li~li::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 16px;
+    background: #ddd;
+    margin: 0 20px;
+    vertical-align:middle ;
+}
+
+.footer .footer_top .sns {
+    font-size: 0;
+}
+
+.footer .footer_top .sns i {
+    padding: 10px;
+    background: rgba(17, 17, 17, 0.5);
+    font-size: 21px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+.footer hr {
+    border: none;
+    border-top: 1px solid #666;
+    margin: 0;
+}
+
+.footer #link {
+    outline: none;
+    background: rgba(17, 17, 17, 0.5);
+    color: #fff;
+    padding: 3px 15px;
+    font-size: 17px;
+    text-transform: uppercase;
+}
