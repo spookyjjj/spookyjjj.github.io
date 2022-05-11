@@ -34,9 +34,9 @@
             font-family: xeicon !important;
         }
 
-        li.on dl {
+        /* li.on dl {
             display: none;
-        }
+        } */
 
         h1 {
             text-align: center;
@@ -131,12 +131,15 @@
 
     <script>
         // let과 var, cont 차이???????????????
-        // 가상요소는 클릭이 안된다?! 이거 버튼만들어서 없애는거 연구하기 
+        // 가상요소는 클릭이 안된다?! 이거 버튼만들어서 없애는거 연구하기
+        
         // https://velog.io/@roong-ra/JavaScript7.-htmlinput%ED%83%9C%EA%B7%B8-querySelector-if%EB%AC%B8%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-day-night-%EB%AA%A8%EB%93%9C-%EB%B2%84%ED%8A%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0
-        document.querySelector('button').addEventListener('click', function () {
-            console.log('눌름');
-            document.querySelector('li').classList.toggle('on');
-        })
+        // document.querySelector('button').addEventListener('click', function () {
+        //     console.log('눌름');
+        //     document.querySelector('li').classList.toggle('on');
+        // })
+        
+        // 헉 이거 보면 될듯 https://joshua-dev-story.blogspot.com/2020/09/javascript-collapse.html#toc-53-1
     </script>
 </body>
 
