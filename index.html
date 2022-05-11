@@ -8,13 +8,34 @@
     <title>수업내용정리</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        @import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
         body {
             font-family: 'Noto Sans KR', sans-serif;
         }
 
-        li {
-            padding: 4px 0;
+        li,
+        dl,
+        dd {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 100%;
+            font: inherit;
+        }
+
+        dd {
+            margin-left: 20px;
+            line-height: 1.4;
+        }
+
+        li::before {
+            content: "\e935";
+            font-family: xeicon !important;
+        }
+
+        li.on dl {
+            display: none;
         }
 
         h1 {
@@ -29,46 +50,53 @@
     <hr>
 
     <ul>
-        <li>
-            <div>220428] <a href="t01.html" target="_blank">박스의 성질 알기</a> </div>
-            <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                    href="t02.html" target="_blank">display
-                    박스 가로로 배열하기</a></div>
-            <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                    href="t03.html" target="_blank">position
-                    박스 z축 배열하기 & click/hover 이벤트시 반응</a></div>
+        <li> 220428] <button>O</button>
+            <dl>
+                <dd><a href="t01.html" target="_blank">박스의 성질 알기</a></dd>
+                <dd><a href="t02.html" target="_blank">display로 박스 가로로 배열하기</a></dd>
+                <dd><a href="t03.html" target="_blank">position으로 박스 z축 배열하기 & click/hover 이벤트시 반응</a></dd>
+            </dl>
         </li>
-        <li>
-            <div>220429] <a href="./trn00/index.html" target="_blank">reset.css먹이기 & 모니터 크기에 따른 반응</a></div>
+        <li> 220429] <button>O</button>
+            <dl>
+                <dd><a href="./trn00/index.html" target="_blank">reset.css먹이기 & 모니터 크기에 따른 반응</a></dd>
+            </dl>
         </li>
-        <li>
-            <div> 220502] <a href="t04.html" target="_blank">backgound 성질 알기</a></div>
+        <li> 220502]
+            <dl>
+                <dd><a href="t04.html" target="_blank">backgound 성질 알기</a></dd>
+            </dl>
         </li>
-        <li>
-            <div> 220503] <a href="t05.html" target="_blank">css가상요소</a></div>
+        <li> 220503]
+            <dl>
+                <dd><a href="t05.html" target="_blank">css가상요소, content:"" 안에 외부아이콘 불러오기</a></dd>
+            </dl>
         </li>
-        <li>
-            <div> 220504] <a href="t06.html" target="_blank">반응형 화면 @media(max-width), click -> toggle </a></div>
+        <li> 220504]
+            <dl>
+                <dd><a href="t06.html" target="_blank">반응형 화면 @media(max-width), click -> toggle </a></dd>
+            </dl>
         </li>
-        <li>
-            <div>220506] <a href="t07_1.html" target="_blank">다단메뉴-smenu각각 나타내기</a> </div>
-            <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                    href="t07_2.html" target="_blank">다단메뉴-smune모두 보이기 & transition 주기</a></div>
-            <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                    href="t07_3.html" target="_blank">다단메뉴-가상요소와 z인덱스를 이용해 smenu 박싱하기</a></div>
-            <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                    href="t08.html" target="_blank">상품에 hover했을때 링크 띄우기, 강조하기</a></div>
-            <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                    href="t09_1.html" target="_blank">여러종류의 팝업창 생성</a></div>
-            <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-                    href="t09_2.html" target="_blank">scrollTop버튼 만들기</a></div>
+        <li> 220506]
+            <dl>
+                <dd><a href="t07_1.html" target="_blank">다단메뉴-smenu각각 나타내기</a>
+                </dd>
+                <dd>
+                    <a href="t07_2.html" target="_blank">다단메뉴-smune모두 보이기 & transition주기</a>
+                </dd>
+                <dd>
+                    <a href="t07_3.html" target="_blank">다단메뉴-가상요소와 z인덱스를 이용해 smenu 박싱하기</a>
+                </dd>
+                <dd>
+                    <a href="t08.html" target="_blank">상품에 hover했을때 링크 띄우기, 강조하기</a>
+                </dd>
+                <dd>
+                    <a href="t09_1.html" target="_blank">여러종류의 팝업창 생성</a>
+                </dd>
+                <dd>
+                    <a href="t09_2.html" target="_blank">scrollTop버튼 만들기</a>
+                </dd>
+            </dl>
         </li>
     </ul>
 
@@ -77,21 +105,39 @@
     <ul>
         <li>
             <a href="./trn01/index.html" target="_blank">깔끔이청소 따라하기</a>
-            <br>220429] css외부폴더에서 관리하기 & 폰트와 아이콘 import해오기
-            <br>220502] js외부폴더에서 관리하기 & jQuery적용, PlugIn활용하기
-            <br>220503] css가상요소, 글자/배경 그라데이션(linear-gradient), 큰 이미지 안에서 필요한 부분만 보이게하기, 늘어나는 box설정하기
-            <br>220504] 반응형 화면 만들기 : @media(max-width), on('click', function () { toggleClass }) 이용
+            <dl>
+                <dd>220429] css외부폴더에서 관리하기 & 폰트와 아이콘 import해오기</dd>
+                <dd>220502] js외부폴더에서 관리하기 & jQuery적용, PlugIn활용하기</dd>
+                <dd>220503] css가상요소, 글자/배경 그라데이션(linear-gradient), 큰 이미지 안에서 필요한 부분만 보이게하기, 늘어나는 box설정하기</dd>
+                <dd>220504] 반응형 화면 만들기 : @media(max-width), on('click', function () { toggleClass }) 이용</dd>
+            </dl>
         </li>
         <li>
             <a href="./trn02/index.html" target="_blank">Graff 따라하기</a> (업데이트중)
-            <br>220509] 배경에 slick slider -> afterChange 이벤트를 이용해 안쪽 text에 애니메이션 주기 (transform:translate 사용) <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;채워지는
-            슬라이더 버튼 만들기
-            <br>220510] video태그를 이용하여 영상넣기 & YTPlayer 플러그인을 이용하여 배경에 유튜브영상 넣기 <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;각
-            케이스에서 play pause 버튼 연결하기 (i:nth-of-type()사용법, trigger('play/pause'), YTPPlay()/YTPPause())
+            <dl>
+                <dd>220509] 배경에 slick slider -> afterChange 이벤트를 이용해 안쪽 text에 애니메이션 주기 (transform:translate 사용) <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;채워지는
+                    슬라이더 버튼 만들기</dd>
+                <dd>220510] video태그를 이용하여 영상넣기 & YTPlayer 플러그인을 이용하여 배경에 유튜브영상 넣기 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    각 케이스에서 play pause 버튼 연결하기 (i:nth-of-type()사용법, trigger('play/pause'), YTPPlay()/YTPPause())</dd>
+                <dd>220511] 메인의 인덱스 값을 이용해 그 인덱스에 맞는 서브 나타내기 (var X = $('메인').index() ->
+                    $('서브').eq(X).addClass(''))<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    select (option value) 이용한 링크연결 (var X = $('select').val() -> window.open(X)) </dd>
+            </dl>
         </li>
     </ul>
+
+    <script>
+        // let과 var, cont 차이???????????????
+        // 가상요소는 클릭이 안된다?! 이거 버튼만들어서 없애는거 연구하기 
+        // https://velog.io/@roong-ra/JavaScript7.-htmlinput%ED%83%9C%EA%B7%B8-querySelector-if%EB%AC%B8%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-day-night-%EB%AA%A8%EB%93%9C-%EB%B2%84%ED%8A%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0
+        document.querySelector('button').addEventListener('click', function () {
+            console.log('눌름');
+            document.querySelector('li').classList.toggle('on');
+        })
+    </script>
 </body>
 
 </html>
