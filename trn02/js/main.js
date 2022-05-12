@@ -74,6 +74,15 @@ $(function () {
         centerMode: true,
         autoplay: true,
         pauseOnHover: false,
+        responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                centerMode: false,
+              }
+            },
+          ],
     });
 
     // main의 tab
@@ -89,5 +98,11 @@ $(function () {
         console.log(lik);
         if (lik) { window.open(lik) };
     })
+
+// 모바일버튼
+$('.mbtn').on('click', function() {
+    $('nav').toggleClass('on');
+    $(this).toggleClass('is-active');
+})
     ////////////////////////////////////////////////
 })
