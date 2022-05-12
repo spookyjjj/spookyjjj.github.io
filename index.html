@@ -31,12 +31,22 @@
 
         li::before {
             content: "\e935";
+            display: inline-block;
             font-family: xeicon !important;
         }
 
-        /* li.on dl {
+        li.on::before {
+            transform: rotate(180deg);
+        }
+
+        dl {
             display: none;
-        } */
+        }
+
+        button {
+            border: 1px solid #ddd;
+            background: none;
+        }
 
         h1 {
             text-align: center;
@@ -49,7 +59,7 @@
 
     <hr>
 
-    <ul>
+    <ul class="bbn">
         <li> 220428] <button>O</button>
             <dl>
                 <dd><a href="t01.html" target="_blank">박스의 성질 알기</a></dd>
@@ -57,27 +67,28 @@
                 <dd><a href="t03.html" target="_blank">position으로 박스 z축 배열하기 & click/hover 이벤트시 반응</a></dd>
             </dl>
         </li>
+
         <li> 220429] <button>O</button>
             <dl>
                 <dd><a href="./trn00/index.html" target="_blank">reset.css먹이기 & 모니터 크기에 따른 반응</a></dd>
             </dl>
         </li>
-        <li> 220502]
+        <li> 220502] <button>O</button>
             <dl>
                 <dd><a href="t04.html" target="_blank">backgound 성질 알기</a></dd>
             </dl>
         </li>
-        <li> 220503]
+        <li> 220503] <button>O</button>
             <dl>
                 <dd><a href="t05.html" target="_blank">css가상요소, content:"" 안에 외부아이콘 불러오기</a></dd>
             </dl>
         </li>
-        <li> 220504]
+        <li> 220504] <button>O</button>
             <dl>
                 <dd><a href="t06.html" target="_blank">반응형 화면 @media(max-width), click -> toggle </a></dd>
             </dl>
         </li>
-        <li> 220506]
+        <li> 220506] <button>O</button>
             <dl>
                 <dd><a href="t07_1.html" target="_blank">다단메뉴-smenu각각 나타내기</a>
                 </dd>
@@ -102,9 +113,9 @@
 
     <hr>
 
-    <ul>
+    <ul class="bbn">
         <li>
-            <a href="./trn01/index.html" target="_blank">깔끔이청소 따라하기</a>
+            <a href="./trn01/index.html" target="_blank">깔끔이청소 따라하기</a> <button>O</button>
             <dl>
                 <dd>220429] css외부폴더에서 관리하기 & 폰트와 아이콘 import해오기</dd>
                 <dd>220502] js외부폴더에서 관리하기 & jQuery적용, PlugIn활용하기</dd>
@@ -113,7 +124,7 @@
             </dl>
         </li>
         <li>
-            <a href="./trn02/index.html" target="_blank">Graff 따라하기</a> (업데이트중)
+            <a href="./trn02/index.html" target="_blank">Graff 따라하기</a> <button>O</button>
             <dl>
                 <dd>220509] 배경에 slick slider -> afterChange 이벤트를 이용해 안쪽 text에 애니메이션 주기 (transform:translate 사용) <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;채워지는
@@ -125,21 +136,19 @@
                     $('서브').eq(X).addClass(''))<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     select (option value) 이용한 링크연결 (var X = $('select').val() -> window.open(X)) </dd>
+                <dd>220512] 반응형 화면 만들기 : @media (max-width:768px), hamburger css를 가져와서 모바일 버튼 생성</dd>
             </dl>
         </li>
     </ul>
-
+    <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
     <script>
-        // let과 var, cont 차이???????????????
-        // 가상요소는 클릭이 안된다?! 이거 버튼만들어서 없애는거 연구하기
-        
-        // https://velog.io/@roong-ra/JavaScript7.-htmlinput%ED%83%9C%EA%B7%B8-querySelector-if%EB%AC%B8%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-day-night-%EB%AA%A8%EB%93%9C-%EB%B2%84%ED%8A%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0
-        // document.querySelector('button').addEventListener('click', function () {
-        //     console.log('눌름');
-        //     document.querySelector('li').classList.toggle('on');
-        // })
-        
-        // 헉 이거 보면 될듯 https://joshua-dev-story.blogspot.com/2020/09/javascript-collapse.html#toc-53-1
+        // 가상요소는 클릭 안됨! 버튼따로 만들기
+        // li가 클릭되었을 때 this에 on을 붙이는 경우, 여러개 li중 첫번째것만 적용된다
+        //  --->>> 각 li의 자식과 부모를 특정해서 적용 시키면 해결됨
+        $('.bbn button').on('click', function () {
+            $(this).next().slideToggle();
+            $(this).parent().toggleClass('on')
+        })
     </script>
 </body>
 
