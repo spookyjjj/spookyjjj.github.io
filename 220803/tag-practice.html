@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>태그 연습하기~</title>
+	<style>
+		header {
+			background-color: #ff00ff;
+			border: 1px solid black;
+		}
+		/* header h1는 새끼들 전부 */
+		/* header > h1은 only 직계자식 */
+		/* #으로 id부르기 */
+		#white-heading {
+			color: #fff;
+			text-align: center;
+		}
+		/* .으로 class부르기 */
+		.red-heading {
+			color: #ff0000;
+			text-align: center;
+		}
+		nav ul{
+			display: flex;
+		}
+		nav ul li {
+			list-style: none;
+			margin-right: 20px;
+		}
+		.container {
+			display: flex;
+		}
+		main {
+			flex: 3;
+			background-color: aqua;
+		}
+		aside {
+			flex: 1;
+			background-color: beige;
+		}
+	</style>
+</head>
+<body>
+	<!-- body의 주석 -->
+	<header>
+		<h1 id="white-heading">헤더영역1</h1>
+		<h1 class="red-heading">헤더영역2</h1>
+	</header>
+	
+	<nav>
+		<ul>
+			<li><a href="firsthtml.html">첫번째</a></li>
+			<li><a href="secondhtml.html">두번째</a></li>
+			<li><a href="inner/thirdhtml.html">세번째</a></li>
+			<li><a href="inputtest.html">입력연습</a></li>
+		</ul>
+		<ol>
+			<li>아이템</li>
+			<li>아이템</li>
+			<li>아이템</li>
+		</ol>
+	</nav>
+	<div class="container">
+		<main>
+			<h1>메인영역</h1>
+			<article>
+				<h2>글 내용 요약 제목</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</article>
+		</main>
+		<aside>사이드영역</aside>
+	</div>
+	<footer>푸터영역</footer>
+</body>
+</html>
