@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js의 function</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+    hello("홍길동"); //함수 호출을 먼저 해놓고 함수 만들어도 작동한다
+    //->왜냐하면, 자스에서는 호이스트가 있어서 함수 같은거 쫙 다 읽고 나머지를 함~
+    function hello(name) { //파라미터 안에 타입을 명시 할 필요가 없다! 이름만 적어주면 됨
+        console.log(name + "님 안뇽");
+    }
+    hello(3); //파라미터 타입을 지정하지 않기 때문에 아무거나 집어넣을 수 있게됨
+    hello(null); //null님 안뇽
+    hello(); //undefined님 안뇽
+    hello("a","b","c"); //a님 안뇽 <- b와 c도 전달은 되지만 a만 출력됨
+
+
+    // myFunc(10, 15); //변수선언 꼴로 함수를 만든것은 호출 먼저 하면 못찾음
+    let myFunc = function (a, b) { //function 자체가 객체이기 때문에 변수로 설정 가능
+        console.log(a + b);
+    }
+    myFunc(10, 15); //함수 호출하듯 하면됨
+
+
+    function params() {
+        for (let i = 0; i < arguments.length; i++) { //여러개의 파라미터값은 arguments안에 들어감
+            console.log(arguments[i]);
+        }
+    }
+    params(1,2,3,4,5,6,7,8,9); //arguments = {1,2,3,4,5,6,7,8,9}
+
+    function paramsSum() {
+        let sum = 0;
+        for (let i = 0; i < arguments.length; i++) { //여러개의 파라미터값은 arguments안에 들어감
+            sum += arguments[i];
+        }
+        console.log(sum);
+    }
+    paramsSum(1,2,3,4,5,6,7,8,9); //arguments = {1,2,3,4,5,6,7,8,9}
+
+    function testDefault(a = 10) { //파라미터로 값이 전달되면 ok, but undefined면 기본값으로 기능
+        console.log(a);
+    }
+    testDefault(100); //100 <- (= 10) 무시
+    testDefault(); //10 <- 기본값 출력
+</script>
+</html>

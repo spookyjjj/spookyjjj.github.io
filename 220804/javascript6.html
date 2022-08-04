@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js와 java차이: 반복문</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+    let i = 0;
+    while (i < 10) {
+        console.log("반복");
+        i++;
+    }
+
+    //하지만 js에서는 0이 false라서 이렇게도 가능하다~
+    let j = 10;
+    while (i) {
+        console.log("new 반복");
+        i--;
+    }
+
+    for (let k = 0; k < 10; k++) { //(k++)도 (k += 1)도 먹는다!
+        console.log("for 반복");
+    }
+
+    for (let k = 0; k < 10; k++) {
+        console.log("for 반복");
+        if (k == 3) {
+            console.log("반복중단");
+            break; //continue도 있다~
+        }
+    }
+</script>
+</html>

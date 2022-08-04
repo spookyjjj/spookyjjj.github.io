@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js실습</title>
+</head>
+<body>
+    <button id="myBtn">눌러봐</button> <!-- <button onclick="myListener()"> 해도되지만 보통은 js에서 처리-->
+    
+    <input id="myText" value="test 값" />
+    <button id="printBtn">콘솔 출력하기</button>
+</body>
+<script>
+    function myListener(e) {
+        alert("왜 누르니?");
+        console.log(e);
+    }
+    //1.
+    // myBtn.onclick = myListener; //onclick라는 필드값을 myListener로 바꾼다고 생각! myListener()이 아님!
+    //2. DOM(Dacument Object Model) <- body의 요소와 소통할 수 있는 객체를 생성해줌
+    let elem = document.getElementById("myBtn");
+    elem.addEventListener("click", myListener);
+    
+    //text입력요소, button요소를 배치하고, 사용자가 입력한 내용을 콘솔출력하기
+    let printBtn = document.getElementById("printBtn");
+    let inputText = document.getElementById("myText");
+    printBtn.addEventListener("click", function (e) {
+        console.log(inputText.value);
+    });
+</script>
+</html>

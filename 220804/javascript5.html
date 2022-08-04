@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js와 java차이: if</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+if ("asa") { //값이 있는 문자열은 ture, ""는 false
+    console.log("참임");
+} else {
+    console.log("거짓임");
+}
+
+if (234) { //값이 있는 숫자는 ture, 0는 false
+    console.log("참임");
+} else {
+    console.log("거짓임");
+}
+
+if ({}) { //객체가 있으면 true, null(undefined, NaN)이면 false
+    console.log("참임");
+} else {
+    console.log("거짓임");
+}
+
+let result = true ? "참은 왼쪽" : "거짓은 오른쪽"; //삼항연산자
+console.log(result);
+
+let nullish = null ?? "널이면 이걸로 대체해줌"; //물음표 두개 유념!
+console.log(nullish);
+
+console.log(true && true); //true
+console.log(true || false); //true
+
+console.log("asd" && "" && "sdff"); //"" <- &&는, 첫번째로 false로 판단되는 값을 찾아냄
+console.log("asd" && "sdff"); //sdff <- 그런거 없으면 젤 마지막꺼
+console.log(0 && 500); //0 <- &&는, 첫번째로 false로 판단되는 값을 찾아냄
+
+console.log("asdf" || null); //asdf <- ||는, 첫번째로 true로 판단되는 값을 찾아냄
+console.log(0 || null || "" || false); //false <- 그런거 없으면 젤 마지막꺼
+console.log(0 || 500); //500 <- ||는, 첫번째로 true로 판단되는 값을 찾아냄
+
+console.log(!"asd"); //false
+console.log(!0); //true
+
+</script>
+</html>

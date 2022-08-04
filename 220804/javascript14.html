@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js 여러기능</title>
+</head>
+<body>
+    <button id="pause">일시정지</button>
+    <button id="reset">정지</button>
+</body>
+<script>
+    //setTimeout(함수, 시간) -> 해당 시간 후에 함수가 호출됨!
+    // setTimeout(function() {
+    //     console.log("3초 후에 출력");
+    // }, 3000)
+
+    //setInterval(함수, 시간) -> 해당 시간 마다 반복적으로 함수가 호출됨
+    // var number = 0;
+    // setInterval(function() {
+    //     number++;
+    //     console.log(number);
+    // }, 1000);
+
+    //스톱워치 만들기
+    // 1. 함수: div에 "안녕!" 텍스트를 추가
+    var number = 0;
+    function print(){
+        console.log(number);
+        number++;
+    }
+        
+    // 2. setInterval 설정: interval 변수에 할당
+    let interval = setInterval(print, 1000);
+
+    // 3. 마우스 클릭시, interval 중단/재시작 구현
+    var toggle = true;
+    function stopwatch(e) {
+        if(toggle){
+            // 반복 중단
+            clearInterval(interval);
+            toggle = false;
+        }else{
+            // 반복 재개(재시작)
+            interval = setInterval(print, 1000);
+            toggle = true;
+        }
+    }
+    function stopwatch2(e) {
+        if(toggle){
+            // 반복 중단
+            clearInterval(interval);
+            toggle = false;
+        }else{
+            // 반복 재개(재시작)
+            interval = setInterval(print, 1000);
+            number = 0;
+            toggle = true;
+        }
+    }
+
+    let pause = document.getElementById("pause");
+    pause.addEventListener("click", stopwatch);
+    let reset = document.getElementById("reset");
+    reset.addEventListener("click", stopwatch2);
+    
+</script>
+</html>

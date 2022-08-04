@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js와 java차이: 숫자</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+    var myVar;
+    //자바스크립트에는 컴파일이라는 선행단계가 없다! 인터프리터언어라서..
+    //그래서 초기화 안하고 변수 불러도 에러가 뜨지는 않음 undefined가 반환
+    console.log(myVar);
+
+    myVar = 10;
+    myVar = "change";
+    //또한 변수의 타입도 그때그때 유동적으로 자기가 알아서 바꾼다~
+    //변수 선언 시 안쓰는거지 타입은 다 있음 number,string,boolean...
+    console.log(myVar);
+
+    //==========
+
+    var myInt = 10;
+    var myDouble = 33.44;
+    var zeroDivide = 0/0;
+    var myNan = NaN;
+
+    console.log(typeof myInt);
+    console.log(typeof myDouble); //둘다 number로 퉁침
+
+    console.log("0으로 나눈 값: " + zeroDivide); //에러가 아닌 NaN반환 (NotaNumber(숫자아님))
+    console.log(typeof zeroDivide); //Number 하지만 타입은 숫자
+
+    //===========
+
+    var str = "hello?";
+    var notDef;
+    var ref = null;
+
+    console.log(typeof str); //string
+    console.log(typeof notDef); //undefined
+    console.log(typeof ref); //object
+</script>
+</html>

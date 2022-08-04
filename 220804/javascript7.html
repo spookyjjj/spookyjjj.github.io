@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js와 java차이: 스위치</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+    let i = 10; //i = "10"을하면 case 10:은 못찾아감,,엄격한 비교(===)라서
+    switch (i) { 
+        case 1:
+            console.log("1임");
+        case 10: //근데 또 그 상태에서 case "1" + "0":하면 연산을 해서 같으니 찾아감
+            console.log("10임");
+        default:
+            console.log("기본");
+    }
+</script>
+</html>

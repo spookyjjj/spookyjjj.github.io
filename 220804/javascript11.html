@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>callback함수</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+    function eat(act) { //함수도 하나의 변수로 지정이 되기때문에, 파라미터로 함수를 전달받기 가능
+        console.log("밥먹구");
+        act();
+    }
+
+    let sleep = function() { //★call back함수
+        console.log("잠자기");
+    }
+
+    let study = function() { //★call back함수
+        alert("공부하기");
+    }
+
+    // eat(sleep);
+    // eat(study);
+
+    let anotherName = eat; //함수 호출이 아니라 함수 이름만 부르면 실행이 아닌 걍 함수 객체 그 자체
+    anotherName(sleep); //eat(sleep)과 같은거임
+</script>
+</html>

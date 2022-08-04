@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js의 function</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+    function sum (a, b) { //리턴타입이 지 맘 대로일 수 있다!!!
+        if (a > b) {
+            return a + b;
+        } else {
+            return "b가 a보다 큽니다";
+        }
+    }
+    //이렇게도 가능하긴 하지만, 최대한 만들지 말자..나중에 중구난방에 너무 힘겨워짐
+    let result = sum(10, 20);
+    console.log(result);
+
+    function someFunc() {} //아무것도 안쓴 함수는 return키워드가 undefined
+    let someResult = someFunc();
+    console.log(someResult);
+</script>
+</html>

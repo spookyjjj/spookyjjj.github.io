@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>화살표 함수</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+    let arrowFunc1 = function(x) {
+        console.log(x);
+    }
+    let arrowFunc2 = (x) => { //이렇게 하는 것도 함수 표현!! 위와 같은 의미임
+        console.log(x);
+    }
+    arrowFunc2("test arrow");
+    //let으로 함수만들때만 사용 가능하다!! 화살표 함수라고 부름
+    //걍 function을 쓰면 무조건 이름 넣어줘야함 -> funtion 이름() {} 형태
+
+    let say = () => {
+        console.log("say");
+        return "반환값";
+    }
+    let result = say();
+    console.log(result);
+
+    let multiply = (a, b) => a * b; //화살표 함수에서는, 연산결과값만을 나타날 때 이렇게 표현도 가능~
+    let m = multiply(10, 5);
+    console.log(m); 
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js 이동 등등</title>
+    <style>
+        .red {
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <button id="move">이동하기</button>
+    <div id="myDiv"></div>
+    <button id="changeBtn">텍스트값 변경하기</button>
+    <button id="colorBtn">색깔 변경하기</button>
+</body>
+<script>
+    document.getElementById("move").addEventListener("click", function(e) {
+        if (confirm("네이버로 이동하시겠습니까?")) { //확인은 true, 취소는 false
+            window.location.href = "http://naver.com";
+            //window.location.href현재 위치의 주소값!을 naver주소로 바꿔주는것~~
+        }
+    });
+    let myDiv = document.getElementById("myDiv");
+    let changeBtn = document.getElementById("changeBtn");
+    changeBtn.addEventListener("click", function(e) {
+        // myDiv.innerText = "<strong>텍스트 값을 변경하였습니다.</strong>"; //just텍스트값이라 몽따 다 나옴
+        myDiv.innerHTML = "<strong>텍스트 값을 변경하였습니다.</strong>"; //태그를 인식해서 나옴
+    });
+    let colorBtn = document.getElementById("colorBtn");
+    colorBtn.addEventListener("click", function(e) {
+        // myDiv.style.color = "red";
+        myDiv.classList.toggle("red"); //myDiv에다가 red라는 class를 붙였다가 뗏다가 하는거임
+    });
+</script>
+</html>

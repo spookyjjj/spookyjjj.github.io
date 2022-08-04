@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js와 java차이: 변수</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+{
+    var myVar = 10; //스코프 안이라도 무조건 전역변수
+    let localVar = 20; //스코프 안에서만 먹는 변수 -> 사용추천
+    const final = 30; //final과 유사.. 지역변수임
+
+    console.log(localVar);
+
+    // final = 40; //변경 안된다~
+
+    console.log(final);
+}
+console.log(myVar); //찾음
+// console.log(localVar); //못찾음
+// console.log(final); //못찾음
+</script>
+</html>

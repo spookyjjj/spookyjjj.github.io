@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js와 java차이: 관계연산</title>
+</head>
+<body>
+    <p>방가방가</p>
+</body>
+<script>
+    //★==은 유연한 비교
+    console.log(1 > 2);
+    console.log(1 < 2);
+    console.log(1 == 1);
+    console.log("abc" == "abc"); //true
+    
+    var char1 = "abc";
+    var char2 = "abc";
+    console.log(char1 == char2); //true
+    console.log(char1 === char2); //true
+
+    console.log(1 == "1"); //ture -> 숫자를 문자열로 표현했어도 숫자로 취급한다
+    console.log(1 == true); //ture 1은 참
+    console.log(0 == false); //ture 0은 거짓
+
+    //★===는 엄격한 비교
+    console.log(1 === "1"); //false 
+    console.log(null == undefined); //true
+    console.log(null === undefined); //false 
+
+    console.log(NaN == NaN); //false ★NaN은 무엇과 비교해도 false! -> isNaN, Object.is ㄱㄱ
+    console.log(NaN === NaN); //false 
+    console.log(NaN === null); //false 
+    console.log(NaN === undefined); //false 
+    console.log(isNaN(NaN)); //ture
+    console.log(Object.is(NaN, NaN)); //ture
+
+</script>
+</html>
