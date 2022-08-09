@@ -8,3 +8,7 @@
   - jsp
 - [220808](./web정리/220808.md)
   -  요청보내고 redirect로 교통정리하고
+- [220809](./web정리/220809.md)
+  - getAttibute, setAttribute
+  - forward
+  - jsp에서 DB연결
