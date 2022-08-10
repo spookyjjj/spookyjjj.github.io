@@ -11,6 +11,7 @@
 	<!-- ul, li 목록 표현 -->
 	<%
 		List<String> list = (List<String>) request.getAttribute("countries");
+		//getAttribute는 Object를 반환하니깐 다운캐스팅이 필요~!
 	%>
 	<ul>
 	<% for (int i = 0; i < list.size(); i++) { %>
