@@ -18,7 +18,7 @@
 	${ true && false }
 	<br />
 	<!-- 객체 접근도 가능하더라~ -->
-	<!-- el에서는 모든 객체에서 get(Request)를 걍 (request)만 적어도 됨 -->
+	<!-- el에서는 모든 객체에서 get'Request'를 걍 'request'로만 적어도 됨 -->
 	${ pageContext.request.requestURI }
 </body>
 </html>
