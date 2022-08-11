@@ -1,4 +1,7 @@
 ### spookyjjj.github.io/web
+- html
+- scc
+- javascript
 ----
 ### 돌아온 웹 공부..
 - [220803](./web정리/220803.md)
@@ -12,3 +15,8 @@
   - getAttibute, setAttribute
   - forward
   - jsp에서 DB연결
+- [220810](./web정리/220809.md)
+  - el, jstl
+  - 서블릿
+- [220811](./web정리/220809.md)
+  - 유효성검사
