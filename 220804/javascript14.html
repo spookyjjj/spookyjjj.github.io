@@ -22,7 +22,7 @@
     // }, 1000);
 
     //스톱워치 만들기
-    // 1. 함수: div에 "안녕!" 텍스트를 추가
+    // 1. 함수생성
     var number = 0;
     function print(){
         console.log(number);
@@ -36,7 +36,7 @@
     var toggle = true;
     function stopwatch(e) {
         if(toggle){
-            // 반복 중단
+            // 반복 중단 <- clearInterval함수이용
             clearInterval(interval);
             toggle = false;
         }else{
