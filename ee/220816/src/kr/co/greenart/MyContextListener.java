@@ -41,6 +41,7 @@ public class MyContextListener implements ServletContextListener {
 //		}
 		//connection pool 사용을 위해 주석처리
 		
+		//DataSource인터페이스의 구현체 BasicDataSource <-get, set만 있다!
 		BasicDataSource ds = new BasicDataSource(); //tomcat이 아니라 commons붙은걸로 임포트
 		ds.setDriverClassName(driver);
 		ds.setUrl(dburl);

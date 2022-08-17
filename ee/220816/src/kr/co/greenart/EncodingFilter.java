@@ -25,6 +25,7 @@ public class EncodingFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		//chain.doFilter()전에 써서 인코딩처리하고 나서 흐름에 넘겨줌
 		//인코딩값 계속 쓸꺼니깐 init에 넣어놓고 씀(final 상수처럼)
 		request.setCharacterEncoding(encoding);
 		response.setCharacterEncoding(encoding);

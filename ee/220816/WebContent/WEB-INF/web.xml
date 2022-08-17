@@ -35,6 +35,11 @@
   	<error-code>401</error-code>
   	<location>/needlogin.jsp</location>
   </error-page>
+  <error-page>
+  	<!-- 패키지이름까지 꼭 써주기~ -->
+  	<exception-type>java.lang.RuntimeException</exception-type>
+  	<location>/errorRuntime.jsp</location>
+  </error-page>
   
   <filter>
   	<filter-name>LoginFilter</filter-name>
