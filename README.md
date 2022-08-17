@@ -11,7 +11,9 @@
   - javaScript
 - [220805](./web정리/220805.md)
   - eclips ee설치
-  - jsp
+  - jsp 기초
+  - request객체, response객체
+  - form input name -> getParameter, getParameterValues, getParameterMap
 - [220808](./web정리/220808.md)
   -  요청 보내는 곳, 논리 처리하는 곳, 결과 보여주는 곳
 - [220809](./web정리/220809.md)
@@ -28,3 +30,7 @@
 - [220816](./web정리/220816.md)
   - Listener
   - connectiion pool
+- [220817](./web정리/220817.md)
+  - logging framwork
+  - maven 프로젝트 빌더
+  - MVC(model view controller)
