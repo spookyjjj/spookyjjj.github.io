@@ -12,10 +12,13 @@
 - [220805](./web정리/220805.md)
   - eclips ee설치
   - jsp 기초
-  - request객체, response객체
-  - form input name -> getParameter, getParameterValues, getParameterMap
+  - request객체
+  - form -> getParameter, getParameterValues, getParameterMap
+  - post/get과 encoding
 - [220808](./web정리/220808.md)
-  -  요청 보내는 곳, 논리 처리하는 곳, 결과 보여주는 곳
+  - out객체
+  - response객체
+  - .sendRedirect() 흐름
 - [220809](./web정리/220809.md)
   - getAttibute, setAttribute
   - forward
