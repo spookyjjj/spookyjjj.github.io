@@ -64,12 +64,13 @@ public class ControllerUsingURI extends HttpServlet {
 		}
 		String viewPage = null;
 		try {
+			//★handler의 proess메소드를 여기서 실행시키고, 그 반환값으로 이동할 페이지경로를 String으로 받아옴
 			viewPage = handler.process(req, resp);
 		} catch (Throwable e) {
 			throw new ServletException(e);
 		}
 		if (viewPage != null) {
-			RequestDispatcher dispatcher = req.getRequestDispatcher(viewPage);
+			RequestDispatcher dispatcher = req.getRequestDispatcher(viewPage); //여기서 흐름 이어줌~
 			dispatcher.forward(req, resp);
 		}
 	}

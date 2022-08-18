@@ -44,17 +44,28 @@
   
   <servlet>
   	<servlet-name>ControllerUsingURI</servlet-name>
-  	<servlet-class>mcv.controller.ControllerUsingURI</servlet-class>
+  	<servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
   	<init-param>
   		<param-name>configFile</param-name>
   		<param-value>
   			/WEB-INF/commandHandlerURI.properties
   		</param-value>
   	</init-param>
-  	<load-on-startup></load-on-startup>
+  	<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
   	<servlet-name>ControllerUsingURI</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <!-- 비번변경으로 가기 전에는 로그인되었는지 체크하는 필터 거침 -->
+  <filter>
+  	<filter-name>LoginCheckFilter</filter-name>
+  	<filter-class>filter.LoginCheckFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoginCheckFilter</filter-name>
+  	<url-pattern>/changePwd.do</url-pattern>
+  </filter-mapping>
+  
 </web-app>
