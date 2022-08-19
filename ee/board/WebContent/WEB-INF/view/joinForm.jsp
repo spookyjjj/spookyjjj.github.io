@@ -10,6 +10,7 @@
 <body>
 	<form action="join.do" method="post">
 		<p>
+			<!-- el에서는 없는 param 불러내라그러면 null이 아니라 공란임~!! -->
 			아이디:<br/><input type="text" name="id" value="${ param.id }">
 			<c:if test="${ errors.id }">ID를 입력하세요.</c:if>
 			<c:if test="${ errors.duplicateId }">이미 사용중인 아이디입니다.</c:if>
