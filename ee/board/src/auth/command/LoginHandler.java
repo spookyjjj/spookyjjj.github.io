@@ -66,6 +66,7 @@ public class LoginHandler implements CommandHandler {
 		try {
 			User user = loginService.login(id, password); //여기서 LoginFailException에러 발생가능
 			req.getSession().setAttribute("authUser", user); //세션범위에서 user저장
+			//만약 세션 유지하며 다른사람이 로그인하면 같은 key니깐 새로 로그인한 user로 덮어씀
 			resp.sendRedirect(req.getContextPath() + "/index.jsp");
 			return null;
 		} catch (LoginFailException e) {

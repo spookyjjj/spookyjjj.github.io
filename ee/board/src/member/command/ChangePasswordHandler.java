@@ -16,8 +16,8 @@ import mvc.command.CommandHandler;
 //★구현 흐름!
 //GET 방식으로 요청이 오면 기본폼인 changePwdForm.jsp 리턴
 //POST 방식으로 요청이 오면 ChangePasswordService를 이용해 처리하고, 결과를 보여주는 뷰를 리턴
-//그 결과가 1)
-//그 결과가 2)
+//그 결과가 1) 오류면 changePwdForm.jsp로 빽
+//그 결과가 2) 바뀌어졌으면 changePwdSuccess.jsp로 ㄱㄱ
 
 public class ChangePasswordHandler implements CommandHandler{
 

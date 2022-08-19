@@ -25,6 +25,9 @@ public class ControllerUsingURI extends HttpServlet {
 		//web.xml에 가보면 servlet에 initParam으로 configFile가 있음
 		String configFile = getInitParameter("configFile");
 		Properties prop = new Properties();
+		//우리 app에 관련된 모든것을 다 알고있는 ServletContext에게 
+		//'configFile(경로임!! : /WEB-INF/commandHandlerURI.properties)'의
+		//realpath가 뭐냐고 물어본다음 configFilePath로 담아 둠
 		String configFilePath = getServletContext().getRealPath(configFile);
 		try (FileReader fis = new FileReader(configFilePath)) {
 			prop.load(fis);
@@ -36,6 +39,9 @@ public class ControllerUsingURI extends HttpServlet {
 			String command = (String) keyIter.next();
 			String handlerClassName = prop.getProperty(command);
 			try {
+				//★해당 클래스 내용을 클래스라는 객체에 투영(reflection)
+				//-> 클래스라는 객체는 getMethod, getConstructor, getField 등등 가능
+				//즉, 해당 클래스의 인스턴스를 만드는게 아니라 아예 그 클래스를 가져오는거라서 걔를 들여다 보는거, 수정하는거, 인스턴스만드는거 다 가능~!!
 				Class<?> handlerClass = Class.forName(handlerClassName);
 				CommandHandler handlerInstance = (CommandHandler) handlerClass.newInstance();
 				commandHandlerMap.put(command, handlerInstance);
