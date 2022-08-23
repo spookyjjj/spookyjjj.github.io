@@ -15,6 +15,7 @@ public class Main4 {
 		HttpURLConnection conn = null;
 		try {
 			conn = (HttpURLConnection) url.openConnection();
+			//=================POST방식!!!!
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			//body에 담아 보내는게 이거다! 라고 헤더에 설정
@@ -28,7 +29,6 @@ public class Main4 {
 			byte[] body = json.getBytes();
 			
 			conn.getOutputStream().write(body, 0, body.length);
-			
 			if (conn.getResponseCode() == 200) {
 				System.out.println(readBody(conn.getInputStream()));
 			}

@@ -22,11 +22,11 @@ public class Main7 {
 		Document doc = Jsoup.connect(searchURL).timeout(5000).get();
 		// Documnet는 f12누르면 나오는 소스 html문서를 말함. timeout은 기본 30초라서 5초로 줄임
 		Elements links = doc.select("a[href]");
-		// 찾을 애를 elements
+		// 찾을 애를 elements로 반환 : a태그인데 attribute로 href를 가진 친구
 
 		Set<String> set = new HashSet<>();
 		for (Element e : links) {
-			String attr = e.attr("href");
+			String attr = e.attr("href"); //href로 설정된 값만 꺼내옴
 			if (attr.startsWith(startString)) {
 				set.add("http://www.saramin.co.kr" + attr);
 			}

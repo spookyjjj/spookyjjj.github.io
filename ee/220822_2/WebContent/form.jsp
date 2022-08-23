@@ -18,8 +18,9 @@
 <script>
 	let elem = document.getElementById("btnchk");
 	elem.addEventListener("click", function (e) {
-		e.preventDefault();
+		e.preventDefault(); 
 		e.stopPropagation();
+		//form안의 버튼이 submit하는걸 막기위한 과정
 		let textid = document.getElementById("textid").value;
 		
 		if (!textid) {
@@ -27,8 +28,8 @@
 		}
 		
 		fetch("http://localhost:8080/api/idcheck?id=" + textid)
-			.then((resp) => resp.text())
-			.then((json) => {
+			.then((resp) => resp.text()) //응답이 날아오면 이렇게 해라
+			.then((json) => { //위의 것 하고 나면 이렇게 해라
 				let result = JSON.parse(json);
 				if (result.duplicate) {
 					//duplicate에서 5글자 이상이면 중복이었음

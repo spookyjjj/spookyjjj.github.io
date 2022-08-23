@@ -11,24 +11,24 @@ import java.net.URLEncoder;
 import com.example.AppleSearchResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Main2 {
+public class Main3 {
 	public static void main(String[] args) throws UnsupportedEncodingException, MalformedURLException {
 		String apiURL = "https://itunes.apple.com/search?term=";
+		//이 주소가 아이튠즈api로 배포되어있다~
 		String requestURL = apiURL + URLEncoder.encode("아이유", "UTF-8");
+
 		URL url = new URL(requestURL);
-		
 		HttpURLConnection conn = null;
+		//HttpURLConnection : url객체를 통해서 반환받을 수 있고, 헤더등을 설정해 요청을 보내면 응답을 받을 수 있다!
 		try {
 			conn = (HttpURLConnection) url.openConnection();
+			//=================GET방식!!!!
 			conn.setRequestMethod("GET");
 
 			int responseCode = conn.getResponseCode();
-			//응답코드가 정상일때(HTTP_OK:200)만 진행하고, 그 이외일때는 에러난거니깐 진행 ㄴㄴ
 			if (responseCode == HttpURLConnection.HTTP_OK) {
 				String respBody = readBody(conn.getInputStream());
-				// 보낸 요청에 대한 응답이 body에 담겨있으므로 응답 body 살펴보기
-				System.out.println(respBody);
-				//이걸로 jsonschema2pojo 돌려서 AppleSearchResult객체 생성하기
+				//body에 내용이 담겨 오므로, body를 읽어야함!
 				
 				ObjectMapper mapper = new ObjectMapper();
 				AppleSearchResult apple = mapper.readValue(respBody, AppleSearchResult.class);

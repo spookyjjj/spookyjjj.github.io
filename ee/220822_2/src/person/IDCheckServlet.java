@@ -17,6 +17,7 @@ public class IDCheckServlet extends HttpServlet {
 		
 		String json;
 		if (id.length() > 5) {
+			//간단히 만들기 위해 길이가 5 이상이면 걍 중복이라고 치자
 			json = "{\"duplicate\":true}";
 		} else {
 			json = "{\"duplicate\":false}";

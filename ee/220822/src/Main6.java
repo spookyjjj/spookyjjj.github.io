@@ -12,6 +12,7 @@ public class Main6 {
 
 		OkHttpClient client = new OkHttpClient();
 		RequestBody reqBody = RequestBody.create("일반텍스트", MediaType.get("text/plain; charset=utf-8"));
+		//post에서는 RequestBody부분만 추가해서 진행하면 됨~
 		Request req = new Request.Builder().url(apiURL).post(reqBody).build();
 
 		try (Response resp = client.newCall(req).execute()) {

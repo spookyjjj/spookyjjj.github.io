@@ -19,8 +19,8 @@ public class PersonServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setHeader("Content-type", "application/json; charset=utf-8");
-		PrintWriter out = resp.getWriter();
-		out.print("{}");
+		PrintWriter out = resp.getWriter(); //body에 값 써넣기위해 resp에서 out객체 가져오기
+		out.print("{}"); //여기에 원하는 정보를 넣어주면됨! ex)다오객체 만들어서 db정보넣기
 	}
 
 	@Override
